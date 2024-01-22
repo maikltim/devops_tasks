@@ -1,0 +1,53 @@
+version: "3.9"
+name: "gitlab"
+services:
+  # This is GITLAB Server instance
+  gitlab:
+    container_name: gitlab
+    image: "gitlab/gitlab-ce:16.0.1-ce.0"
+    restart: unless-stopped
+    hostname: "gitlab.example.com"
+    extra_hosts:
+      - "gitlab.example.com:192.168.11.160"
+      - "registry.example.com:192.168.11.160"
+    networks:
+      net:
+        ipv4_address: 192.168.11.160
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        gitlab_rails['gitlab_shell_ssh_port'] = 22
+    ports:
+      - "80:80"
+      - "443:443"
+      - "22:22"
+    volumes:
+      - "config:/etc/gitlab"
+      - "logs:/var/log/gitlab"
+      - "data:/var/opt/gitlab"
+    shm_size: "256m"
+  # This is RUNNER 
+  gitlab-runner:
+    container_name: gitlab-runner
+    image: "gitlab/gitlab-runner:v16.0.1"
+    restart: unless-stopped
+    extra_hosts:
+      - "gitlab.example.com:192.168.11.161"
+      - "registry.example.com:192.168.11.161"   
+    volumes:
+      - "runner_conf:/etc/gitlab-runner"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      net:
+        ipv4_address: 192.168.11.161
+# ALL options(network + volume)
+networks:
+  net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.11.0/16"
+volumes:
+  config:
+  logs:
+  data:
+  runner_conf:

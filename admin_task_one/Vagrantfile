@@ -12,6 +12,7 @@ Vagrant.configure(2) do |config|
         v.cpus = 2
       end
       app01.vm.hostname = "app01"
+      config.vm.provision "shell", path: "./scripts/lemp.sh"
     end
   
     config.vm.define "gitlab" do |gitlab|
@@ -21,13 +22,7 @@ Vagrant.configure(2) do |config|
         v.cpus = 4
       end
       gitlab.vm.hostname = "gitlab"
-
-      config.vm.provision "shell", inline: <<-SHELL
-        apt-get update
-        apt-get install -y curl openssh-server ca-certificates tzdata htop
-        curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
-        sudo EXTERNAL_URL="http://gitlab.int" apt-get install -y gitlab-ce
-      SHELL
+      #config.vm.provision "shell", path: "./scripts/gitlab.sh"
     end
 
     config.vm.define "vpn01" do |vpn01|

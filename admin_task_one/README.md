@@ -273,4 +273,66 @@ https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer
 
 > The infrustructure and app is ready to use.
 
-# Развернуть СУБД PostgreSQL на виртуальной машине db01. Создать базу данных и пользователя
+# Развернуть СУБД PostgreSQL на виртуальной машине db01. Создать базу данных и пользователя 
+
+"""
+To install PostgreSQL, first refresh your server’s local package index:
+sudo apt update
+
+Then, install the Postgres package
+sudo apt install postgresql
+"""
+
+> Ensure that the service is started:
+
+"""
+ sudo systemctl is-active postgresql
+
+ sudo systemctl is-enabled postgresql
+
+ sudo systemctl status postgresql
+"""
+
+> After it check that PostgreSQL-server ready to accept connect form clients
+
+"""
+sudo pg_isready
+"""
+
+> Create Database in PostgreSQL
+
+"""
+connect to the Postgres prompt is to run the psql command as the postgres account directly with sudo:
+
+sudo su - postgres
+
+then 
+psql
+"""
+
+"""
+if you see postgres=# 
+you are in PostgreSQL shell 
+
+CREATE USER bob WITH PASSWORD 'P@$$w0rd';
+
+then Create DB
+CREATE DATABASE bobdb;
+
+Now Grants all privileges
+GRANT ALL PRIVILEGES ON DATABASE bobdb to bob;
+"""
+
+> Разрешить доступ только из внутренней сети
+
+"""
+We need to find conf file:
+sudo vi /etc/postgresql/12/main/postgresql.confvi /db/pgsql/postgresql.conf
+and
+sudo vi /etc/postgresql/12/main/pg_hba.conf
+add necesary set up
+
+reload service
+sudo systemctl reload postresql
+"""
+

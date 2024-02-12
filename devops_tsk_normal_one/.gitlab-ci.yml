@@ -1,0 +1,48 @@
+stages:
+  - test
+  - build
+  - deploy_to_dev
+  - deploy_to_prod
+
+
+test_run:
+  stage: test
+  script:
+    - echo "test"
+
+
+build_run:
+  stage: build
+  script:
+    - ./build.sh 
+
+
+deploy_dev_run:
+  stage: deploy_to_dev
+  script:
+    - mkdir travellist
+    - cp -rf ./travellist /var/www/travellist
+  when: manual
+  tags:
+    - stage-shell
+  only: 
+    refs:
+      - tags
+      - dev 
+
+    
+deploy_prod_run:
+  stage: deploy_to_prod
+  script:
+    - mkdir travellist
+    - cp -rf ./travellist /var/www/travellist
+  when: manual
+  only: 
+    refs:
+      - tags
+      - master
+
+
+
+
+

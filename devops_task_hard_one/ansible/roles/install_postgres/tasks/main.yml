@@ -1,0 +1,70 @@
+---
+  # Switch off firewalld and delete it form autoload
+  - name: disabled firewalld service
+    service:
+      name: firewalld
+      state: stopped 
+      enabled: false 
+  
+  # Switch off SELinux
+  - name: Disable SELinux 
+    selinux:
+      state: disabled 
+
+  #Disabled SELinux after reload
+  - name: ensure SELinux is set to disabled mode 
+    lineinfile:
+      path: /etc/selinux/config
+      regexp: '^SELINUX='
+      line: SELINUX=disabled 
+
+
+  - name: Import GPG-key PostgreSql
+    ansible.builtin.rpm_key:
+      state: present 
+      key: https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-14
+
+
+  # Add repo postgres 
+  - name: Install repo
+    dnf: 
+      name: 'https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm' 
+      state: present 
+
+
+  # Switch off old module
+  - name: disable old postgresql module
+    shell: dnf -qy module disable postgresql 
+
+
+  # Install postgresql14-server
+  - name: Install postgresql14-server 
+    dnf:
+      name: postgresql14-server
+      state: present 
+      update_cahe: true 
+
+
+  # Check that postgresql on host not initialize yet
+  - name: check init 
+    state: 
+      path: /var/lib/pgsql/14/data/pg_stat
+    register: state_result 
+
+
+  # Do initialize postgresql 
+  - name: Initialization setup
+    shell: sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
+    when: not state_result.stat_exists 
+
+
+  # Start postgresql-14
+  - name: enable and start service 
+    service: 
+      name: postgresql-14
+      state: started 
+      enabled: true 
+
+
+
+      

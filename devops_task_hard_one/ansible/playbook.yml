@@ -1,0 +1,7 @@
+---
+- name: Install roles
+  hosts: vpn01
+  become: true
+  gather_facts: true
+  roles:
+    - install_openvpn

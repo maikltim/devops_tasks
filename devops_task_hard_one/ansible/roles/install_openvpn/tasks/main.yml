@@ -1,2 +1,5 @@
 ---
 # tasks file for install_openvpn
+- include_tasks: server.yml 
+- include_tasks: client.yml
+...

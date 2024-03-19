@@ -27,7 +27,7 @@
 
   # Add repo postgres 
   - name: Install repo
-    dnf: 
+    apt: 
       name: 'https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm' 
       state: present 
 
@@ -39,7 +39,7 @@
 
   # Install postgresql14-server
   - name: Install postgresql14-server 
-    dnf:
+    apt:
       name: postgresql14-server
       state: present 
       update_cahe: true 

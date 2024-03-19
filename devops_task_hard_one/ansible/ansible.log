@@ -1,0 +1,1107 @@
+2024-03-18 13:29:11,101 p=50040 u=maikltim n=ansible | [WARNING]:  * Failed to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml with auto plugin: no root 'plugin' key found,
+'/home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml' is not a valid YAML inventory plugin config file
+
+2024-03-18 13:29:11,102 p=50040 u=maikltim n=ansible | [WARNING]:  * Failed to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleSequence'>
+
+2024-03-18 13:29:11,102 p=50040 u=maikltim n=ansible | [WARNING]:  * Failed to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml with ini plugin: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML
+file.
+
+2024-03-18 13:29:11,102 p=50040 u=maikltim n=ansible | [WARNING]: Unable to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml as an inventory source
+
+2024-03-18 13:29:11,102 p=50040 u=maikltim n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-03-18 13:29:11,104 p=50040 u=maikltim n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2024-03-18 13:29:19,173 p=50091 u=maikltim n=ansible | [WARNING]:  * Failed to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml with auto plugin: no root 'plugin' key found,
+'/home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml' is not a valid YAML inventory plugin config file
+
+2024-03-18 13:29:19,173 p=50091 u=maikltim n=ansible | [WARNING]:  * Failed to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleSequence'>
+
+2024-03-18 13:29:19,173 p=50091 u=maikltim n=ansible | [WARNING]:  * Failed to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml with ini plugin: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML
+file.
+
+2024-03-18 13:29:19,173 p=50091 u=maikltim n=ansible | [WARNING]: Unable to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml as an inventory source
+
+2024-03-18 13:29:19,173 p=50091 u=maikltim n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-03-18 13:29:19,176 p=50091 u=maikltim n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2024-03-18 13:29:51,538 p=50315 u=maikltim n=ansible | [WARNING]:  * Failed to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml with auto plugin: no root 'plugin' key found,
+'/home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml' is not a valid YAML inventory plugin config file
+
+2024-03-18 13:29:51,538 p=50315 u=maikltim n=ansible | [WARNING]:  * Failed to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml with yaml plugin: YAML inventory has invalid structure, it should be a dictionary, got: <class
+'ansible.parsing.yaml.objects.AnsibleSequence'>
+
+2024-03-18 13:29:51,538 p=50315 u=maikltim n=ansible | [WARNING]:  * Failed to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml with ini plugin: Invalid host pattern '---' supplied, '---' is normally a sign this is a YAML
+file.
+
+2024-03-18 13:29:51,538 p=50315 u=maikltim n=ansible | [WARNING]: Unable to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/provision.yml as an inventory source
+
+2024-03-18 13:29:51,539 p=50315 u=maikltim n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-03-18 13:29:51,541 p=50315 u=maikltim n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2024-03-18 13:30:33,328 p=50654 u=maikltim n=ansible | [WARNING]: Unable to parse /home/maikltim/devops_tasks/devops_task_hard_one/ansible/inventory as an inventory source
+
+2024-03-18 13:30:33,328 p=50654 u=maikltim n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-03-18 13:30:33,330 p=50654 u=maikltim n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2024-03-18 14:14:47,751 p=64163 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-18 14:14:47,756 p=64163 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-18 14:14:47,876 p=64163 u=maikltim n=ansible | PLAY [Install roles] ************************************************************************************************************************************************************************
+2024-03-18 14:14:47,900 p=64163 u=maikltim n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************
+2024-03-18 14:14:49,309 p=64163 u=maikltim n=ansible | ok: [vpn01]
+2024-03-18 14:14:49,323 p=64163 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] ******************************************************************************************************************************************************
+2024-03-18 14:14:49,339 p=64163 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-18 14:14:49,347 p=64163 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] *****************************************************************************************************************************************
+2024-03-18 14:24:30,049 p=64163 u=maikltim n=ansible | The following additional packages will be installed:
+  libccid libpcsclite1 libpkcs11-helper1 netfilter-persistent opensc
+  opensc-pkcs11 pcscd
+Suggested packages:
+  pcmciautils resolvconf openvpn-systemd-resolved
+The following NEW packages will be installed:
+  easy-rsa iptables-persistent libccid libpcsclite1 libpkcs11-helper1
+  netfilter-persistent opensc opensc-pkcs11 openvpn pcscd
+0 upgraded, 10 newly installed, 0 to remove and 184 not upgraded.
+2024-03-18 14:24:30,050 p=64163 u=maikltim n=ansible | changed: [vpn01] => {"cache_update_time": 1710761133, "cache_updated": true, "changed": true, "stderr": "", "stderr_lines": [], "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nThe following additional packages will be installed:\n  libccid libpcsclite1 libpkcs11-helper1 netfilter-persistent opensc\n  opensc-pkcs11 pcscd\nSuggested packages:\n  pcmciautils resolvconf openvpn-systemd-resolved\nThe following NEW packages will be installed:\n  easy-rsa iptables-persistent libccid libpcsclite1 libpkcs11-helper1\n  netfilter-persistent opensc opensc-pkcs11 openvpn pcscd\n0 upgraded, 10 newly installed, 0 to remove and 184 not upgraded.\nNeed to get 1,906 kB of archives.\nAfter this operation, 6,511 kB of additional disk space will be used.\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]\nGet:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]\nGet:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 iptables-persistent all 1.0.14ubuntu1 [6,552 B]\nGet:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 iptables-persistent all 1.0.14ubuntu1 [6,552 B]\nGet:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 iptables-persistent all 1.0.14ubuntu1 [6,552 B]\nGet:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 iptables-persistent all 1.0.14ubuntu1 [6,552 B]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]\nGet:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]\nGet:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]\nGet:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]\nGet:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]\nGet:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]\nGet:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]\nGet:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]\nGet:7 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc-pkcs11 amd64 0.20.0-3 [852 kB]\nGet:7 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc-pkcs11 amd64 0.20.0-3 [852 kB]\nGet:7 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc-pkcs11 amd64 0.20.0-3 [852 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]\nGet:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.1 [483 kB]\nGet:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.1 [483 kB]\nGet:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.1 [483 kB]\nGet:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.1 [483 kB]\nGet:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.1 [483 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nGet:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]\nPreconfiguring packages ...\nFetched 1,906 kB in 28s (67.1 kB/s)\nSelecting previously unselected package netfilter-persistent.\r\n(Reading database ... \r(Reading database ... 5%\r(Reading database ... 10%\r(Reading database ... 15%\r(Reading database ... 20%\r(Reading database ... 25%\r(Reading database ... 30%\r(Reading database ... 35%\r(Reading database ... 40%\r(Reading database ... 45%\r(Reading database ... 50%\r(Reading database ... 55%\r(Reading database ... 60%\r(Reading database ... 65%\r(Reading database ... 70%\r(Reading database ... 75%\r(Reading database ... 80%\r(Reading database ... 85%\r(Reading database ... 90%\r(Reading database ... 95%\r(Reading database ... 100%\r(Reading database ... 63554 files and directories currently installed.)\r\nPreparing to unpack .../0-netfilter-persistent_1.0.14ubuntu1_all.deb ...\r\nUnpacking netfilter-persistent (1.0.14ubuntu1) ...\r\nSelecting previously unselected package iptables-persistent.\r\nPreparing to unpack .../1-iptables-persistent_1.0.14ubuntu1_all.deb ...\r\nUnpacking iptables-persistent (1.0.14ubuntu1) ...\r\nSelecting previously unselected package libccid.\r\nPreparing to unpack .../2-libccid_1.4.31-1_amd64.deb ...\r\nUnpacking libccid (1.4.31-1) ...\r\nSelecting previously unselected package libpcsclite1:amd64.\r\nPreparing to unpack .../3-libpcsclite1_1.8.26-3_amd64.deb ...\r\nUnpacking libpcsclite1:amd64 (1.8.26-3) ...\r\nSelecting previously unselected package pcscd.\r\nPreparing to unpack .../4-pcscd_1.8.26-3_amd64.deb ...\r\nUnpacking pcscd (1.8.26-3) ...\r\nSelecting previously unselected package libpkcs11-helper1:amd64.\r\nPreparing to unpack .../5-libpkcs11-helper1_1.26-1_amd64.deb ...\r\nUnpacking libpkcs11-helper1:amd64 (1.26-1) ...\r\nSelecting previously unselected package opensc-pkcs11:amd64.\r\nPreparing to unpack .../6-opensc-pkcs11_0.20.0-3_amd64.deb ...\r\nUnpacking opensc-pkcs11:amd64 (0.20.0-3) ...\r\nSelecting previously unselected package opensc.\r\nPreparing to unpack .../7-opensc_0.20.0-3_amd64.deb ...\r\nUnpacking opensc (0.20.0-3) ...\r\nSelecting previously unselected package openvpn.\r\nPreparing to unpack .../8-openvpn_2.4.12-0ubuntu0.20.04.1_amd64.deb ...\r\nUnpacking openvpn (2.4.12-0ubuntu0.20.04.1) ...\r\nSelecting previously unselected package easy-rsa.\r\nPreparing to unpack .../9-easy-rsa_3.0.6-1_all.deb ...\r\nUnpacking easy-rsa (3.0.6-1) ...\r\nSetting up libccid (1.4.31-1) ...\r\nSetting up libpkcs11-helper1:amd64 (1.26-1) ...\r\nSetting up opensc-pkcs11:amd64 (0.20.0-3) ...\r\nSetting up libpcsclite1:amd64 (1.8.26-3) ...\r\nSetting up netfilter-persistent (1.0.14ubuntu1) ...\r\nCreated symlink /etc/systemd/system/multi-user.target.wants/netfilter-persistent.service → /lib/systemd/system/netfilter-persistent.service.\r\nSetting up easy-rsa (3.0.6-1) ...\r\nSetting up openvpn (2.4.12-0ubuntu0.20.04.1) ...\r\n * Restarting virtual private network daemon.       \u001b[80G \r\u001b[74G[ OK ]\r\nCreated symlink /etc/systemd/system/multi-user.target.wants/openvpn.service → /lib/systemd/system/openvpn.service.\r\nSetting up opensc (0.20.0-3) ...\r\nSetting up pcscd (1.8.26-3) ...\r\nCreated symlink /etc/systemd/system/sockets.target.wants/pcscd.socket → /lib/systemd/system/pcscd.socket.\r\npcscd.service is a disabled or a static unit, not starting it.\r\nSetting up iptables-persistent (1.0.14ubuntu1) ...\r\nupdate-alternatives: using /lib/systemd/system/netfilter-persistent.service to provide /lib/systemd/system/iptables.service (iptables.service) in auto mode\r\nProcessing triggers for libc-bin (2.31-0ubuntu9.9) ...\r\nProcessing triggers for systemd (245.4-4ubuntu3.18) ...\r\nProcessing triggers for man-db (2.9.1-1) ...\r\nProcessing triggers for mime-support (3.64ubuntu1) ...\r\n", "stdout_lines": ["Reading package lists...", "Building dependency tree...", "Reading state information...", "The following additional packages will be installed:", "  libccid libpcsclite1 libpkcs11-helper1 netfilter-persistent opensc", "  opensc-pkcs11 pcscd", "Suggested packages:", "  pcmciautils resolvconf openvpn-systemd-resolved", "The following NEW packages will be installed:", "  easy-rsa iptables-persistent libccid libpcsclite1 libpkcs11-helper1", "  netfilter-persistent opensc opensc-pkcs11 openvpn pcscd", "0 upgraded, 10 newly installed, 0 to remove and 184 not upgraded.", "Need to get 1,906 kB of archives.", "After this operation, 6,511 kB of additional disk space will be used.", "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]", "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]", "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]", "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]", "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]", "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]", "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]", "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]", "Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 netfilter-persistent all 1.0.14ubuntu1 [7,268 B]", "Get:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 iptables-persistent all 1.0.14ubuntu1 [6,552 B]", "Get:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 iptables-persistent all 1.0.14ubuntu1 [6,552 B]", "Get:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 iptables-persistent all 1.0.14ubuntu1 [6,552 B]", "Get:2 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 iptables-persistent all 1.0.14ubuntu1 [6,552 B]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libccid amd64 1.4.31-1 [72.1 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:4 http://archive.ubuntu.com/ubuntu focal/main amd64 libpcsclite1 amd64 1.8.26-3 [22.0 kB]", "Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]", "Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]", "Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]", "Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]", "Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]", "Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]", "Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]", "Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]", "Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 pcscd amd64 1.8.26-3 [58.1 kB]", "Get:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]", "Get:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]", "Get:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]", "Get:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]", "Get:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]", "Get:6 http://archive.ubuntu.com/ubuntu focal/main amd64 libpkcs11-helper1 amd64 1.26-1 [44.3 kB]", "Get:7 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc-pkcs11 amd64 0.20.0-3 [852 kB]", "Get:7 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc-pkcs11 amd64 0.20.0-3 [852 kB]", "Get:7 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc-pkcs11 amd64 0.20.0-3 [852 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:8 http://archive.ubuntu.com/ubuntu focal/universe amd64 opensc amd64 0.20.0-3 [324 kB]", "Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.1 [483 kB]", "Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.1 [483 kB]", "Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.1 [483 kB]", "Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.1 [483 kB]", "Get:9 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 openvpn amd64 2.4.12-0ubuntu0.20.04.1 [483 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Get:10 http://archive.ubuntu.com/ubuntu focal/universe amd64 easy-rsa all 3.0.6-1 [36.1 kB]", "Preconfiguring packages ...", "Fetched 1,906 kB in 28s (67.1 kB/s)", "Selecting previously unselected package netfilter-persistent.", "(Reading database ... ", "(Reading database ... 5%", "(Reading database ... 10%", "(Reading database ... 15%", "(Reading database ... 20%", "(Reading database ... 25%", "(Reading database ... 30%", "(Reading database ... 35%", "(Reading database ... 40%", "(Reading database ... 45%", "(Reading database ... 50%", "(Reading database ... 55%", "(Reading database ... 60%", "(Reading database ... 65%", "(Reading database ... 70%", "(Reading database ... 75%", "(Reading database ... 80%", "(Reading database ... 85%", "(Reading database ... 90%", "(Reading database ... 95%", "(Reading database ... 100%", "(Reading database ... 63554 files and directories currently installed.)", "Preparing to unpack .../0-netfilter-persistent_1.0.14ubuntu1_all.deb ...", "Unpacking netfilter-persistent (1.0.14ubuntu1) ...", "Selecting previously unselected package iptables-persistent.", "Preparing to unpack .../1-iptables-persistent_1.0.14ubuntu1_all.deb ...", "Unpacking iptables-persistent (1.0.14ubuntu1) ...", "Selecting previously unselected package libccid.", "Preparing to unpack .../2-libccid_1.4.31-1_amd64.deb ...", "Unpacking libccid (1.4.31-1) ...", "Selecting previously unselected package libpcsclite1:amd64.", "Preparing to unpack .../3-libpcsclite1_1.8.26-3_amd64.deb ...", "Unpacking libpcsclite1:amd64 (1.8.26-3) ...", "Selecting previously unselected package pcscd.", "Preparing to unpack .../4-pcscd_1.8.26-3_amd64.deb ...", "Unpacking pcscd (1.8.26-3) ...", "Selecting previously unselected package libpkcs11-helper1:amd64.", "Preparing to unpack .../5-libpkcs11-helper1_1.26-1_amd64.deb ...", "Unpacking libpkcs11-helper1:amd64 (1.26-1) ...", "Selecting previously unselected package opensc-pkcs11:amd64.", "Preparing to unpack .../6-opensc-pkcs11_0.20.0-3_amd64.deb ...", "Unpacking opensc-pkcs11:amd64 (0.20.0-3) ...", "Selecting previously unselected package opensc.", "Preparing to unpack .../7-opensc_0.20.0-3_amd64.deb ...", "Unpacking opensc (0.20.0-3) ...", "Selecting previously unselected package openvpn.", "Preparing to unpack .../8-openvpn_2.4.12-0ubuntu0.20.04.1_amd64.deb ...", "Unpacking openvpn (2.4.12-0ubuntu0.20.04.1) ...", "Selecting previously unselected package easy-rsa.", "Preparing to unpack .../9-easy-rsa_3.0.6-1_all.deb ...", "Unpacking easy-rsa (3.0.6-1) ...", "Setting up libccid (1.4.31-1) ...", "Setting up libpkcs11-helper1:amd64 (1.26-1) ...", "Setting up opensc-pkcs11:amd64 (0.20.0-3) ...", "Setting up libpcsclite1:amd64 (1.8.26-3) ...", "Setting up netfilter-persistent (1.0.14ubuntu1) ...", "Created symlink /etc/systemd/system/multi-user.target.wants/netfilter-persistent.service → /lib/systemd/system/netfilter-persistent.service.", "Setting up easy-rsa (3.0.6-1) ...", "Setting up openvpn (2.4.12-0ubuntu0.20.04.1) ...", " * Restarting virtual private network daemon.       \u001b[80G ", "\u001b[74G[ OK ]", "Created symlink /etc/systemd/system/multi-user.target.wants/openvpn.service → /lib/systemd/system/openvpn.service.", "Setting up opensc (0.20.0-3) ...", "Setting up pcscd (1.8.26-3) ...", "Created symlink /etc/systemd/system/sockets.target.wants/pcscd.socket → /lib/systemd/system/pcscd.socket.", "pcscd.service is a disabled or a static unit, not starting it.", "Setting up iptables-persistent (1.0.14ubuntu1) ...", "update-alternatives: using /lib/systemd/system/netfilter-persistent.service to provide /lib/systemd/system/iptables.service (iptables.service) in auto mode", "Processing triggers for libc-bin (2.31-0ubuntu9.9) ...", "Processing triggers for systemd (245.4-4ubuntu3.18) ...", "Processing triggers for man-db (2.9.1-1) ...", "Processing triggers for mime-support (3.64ubuntu1) ..."]}
+2024-03-18 14:24:30,057 p=64163 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] ******************************************************************************************************************************************************
+2024-03-18 14:24:30,092 p=64163 u=maikltim n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************
+2024-03-18 14:24:30,092 p=64163 u=maikltim n=ansible | vpn01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-03-18 14:25:20,543 p=67752 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-18 14:25:20,548 p=67752 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-18 14:25:20,653 p=67752 u=maikltim n=ansible | PLAY [Install roles] ************************************************************************************************************************************************************************
+2024-03-18 14:25:20,677 p=67752 u=maikltim n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************
+2024-03-18 14:25:21,853 p=67752 u=maikltim n=ansible | ok: [vpn01]
+2024-03-18 14:25:21,867 p=67752 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] ******************************************************************************************************************************************************
+2024-03-18 14:25:21,882 p=67752 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-18 14:25:21,890 p=67752 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] *****************************************************************************************************************************************
+2024-03-18 14:25:29,729 p=67752 u=maikltim n=ansible | ok: [vpn01] => {"cache_update_time": 1710761252, "cache_updated": true, "changed": false}
+2024-03-18 14:25:29,736 p=67752 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] ******************************************************************************************************************************************************
+2024-03-18 14:25:29,769 p=67752 u=maikltim n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************
+2024-03-18 14:25:29,769 p=67752 u=maikltim n=ansible | vpn01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-03-19 11:50:31,525 p=42987 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-19 11:50:31,547 p=42987 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 11:50:31,658 p=42987 u=maikltim n=ansible | PLAY [Install roles] ********************************************************************************************************************************************************************************
+2024-03-19 11:50:31,703 p=42987 u=maikltim n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2024-03-19 11:50:33,723 p=42987 u=maikltim n=ansible | ok: [vpn01]
+2024-03-19 11:50:33,737 p=42987 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] **************************************************************************************************************************************************************
+2024-03-19 11:50:33,758 p=42987 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-19 11:50:33,765 p=42987 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] *************************************************************************************************************************************************
+2024-03-19 11:50:36,860 p=42987 u=maikltim n=ansible | ok: [vpn01] => {"cache_update_time": 1710838236, "cache_updated": true, "changed": false}
+2024-03-19 11:50:36,868 p=42987 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | Enable IPv4 forwrding] ********************************************************************************************************************************************
+2024-03-19 11:50:37,184 p=42987 u=maikltim n=ansible | changed: [vpn01] => {"changed": true, "failed_when_result": false}
+2024-03-19 11:50:37,193 p=42987 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | Create Iptables NAT chain] ****************************************************************************************************************************************
+2024-03-19 11:50:37,528 p=42987 u=maikltim n=ansible | changed: [vpn01] => {"chain": "POSTROUTING", "changed": true, "flush": false, "ip_version": "ipv4", "rule": "-p all -s 0.0.0.0/0 -d 0.0.0.0/0 -j MASQUERADE -m comment --comment ansible NAT MASQUERADE", "state": "present", "table": "nat"}
+2024-03-19 11:50:37,537 p=42987 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | ensure /etc/openvpn/easy-rsa exists] ******************************************************************************************************************************
+2024-03-19 11:50:37,827 p=42987 u=maikltim n=ansible | [0;31m--- before[0m
+[0;31m[0m[0;32m+++ after[0m
+[0;32m[0m[0;36m@@ -1,4 +1,4 @@[0m
+[0;36m[0m {
+     "path": "/etc/openvpn/easyrsa",
+[0;31m-    "state": "absent"[0m
+[0;31m[0m[0;32m+    "state": "directory"[0m
+[0;32m[0m }
+
+
+2024-03-19 11:50:37,828 p=42987 u=maikltim n=ansible | changed: [vpn01] => {"changed": true, "gid": 0, "group": "root", "mode": "0755", "owner": "root", "path": "/etc/openvpn/easyrsa", "size": 4096, "state": "directory", "uid": 0}
+2024-03-19 11:50:37,835 p=42987 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | create vars file] *************************************************************************************************************************************************
+2024-03-19 11:50:38,591 p=42987 u=maikltim n=ansible | [0;31m--- before[0m
+[0;31m[0m[0;32m+++ after: /home/maikltim/.ansible/tmp/ansible-local-429878a5o_ski/tmp0g1ekhcf[0m
+[0;32m[0m[0;36m@@ -0,0 +1,2 @@[0m
+[0;36m[0m[0;32m+set_var EASY_ALGO "ec"[0m
+[0;32m[0m[0;32m+set_var EASYRSA_DIGEST "sha512"[0m
+[0;32m[0m
+
+2024-03-19 11:50:38,592 p=42987 u=maikltim n=ansible | changed: [vpn01] => {"changed": true, "checksum": "8633e5c2384b29d1c108694e592076d02050b016", "dest": "/usr/share/easy-rsa/vars", "gid": 0, "group": "root", "md5sum": "fd0611ae664ef8a5726ee99adf161e71", "mode": "0644", "owner": "root", "size": 55, "src": "/home/vagrant/.ansible/tmp/ansible-tmp-1710838237.8762825-43096-256619808062808/source", "state": "file", "uid": 0}
+2024-03-19 11:50:38,607 p=42987 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | easy-rsa init-pki] ************************************************************************************************************************************************
+2024-03-19 11:50:38,895 p=42987 u=maikltim n=ansible | fatal: [vpn01]: FAILED! => {"changed": false, "cmd": ["/usr/share/easy-rsa/easyrsa", "init-pki"], "delta": null, "end": null, "msg": "Unable to change directory before execution: [Errno 2] No such file or directory: b'/etc/openvpn/easy-rsa'", "rc": null, "start": null, "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2024-03-19 11:50:38,896 p=42987 u=maikltim n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2024-03-19 11:50:38,896 p=42987 u=maikltim n=ansible | vpn01                      : ok=7    changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-03-19 11:55:49,480 p=44730 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-19 11:55:49,486 p=44730 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 11:55:49,578 p=44730 u=maikltim n=ansible | PLAY [Install roles] ********************************************************************************************************************************************************************************
+2024-03-19 11:55:49,601 p=44730 u=maikltim n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2024-03-19 11:55:51,376 p=44730 u=maikltim n=ansible | ok: [vpn01]
+2024-03-19 11:55:51,389 p=44730 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] **************************************************************************************************************************************************************
+2024-03-19 11:55:51,407 p=44730 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-19 11:55:51,429 p=44730 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] *************************************************************************************************************************************************
+2024-03-19 11:59:28,851 p=44730 u=maikltim n=ansible |  [ERROR]: User interrupted execution
+
+2024-03-19 11:59:30,721 p=46377 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-19 11:59:30,727 p=46377 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 11:59:30,823 p=46377 u=maikltim n=ansible | PLAY [Install roles] ********************************************************************************************************************************************************************************
+2024-03-19 11:59:30,850 p=46377 u=maikltim n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2024-03-19 11:59:31,916 p=46377 u=maikltim n=ansible | ok: [vpn01]
+2024-03-19 11:59:31,930 p=46377 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] **************************************************************************************************************************************************************
+2024-03-19 11:59:31,948 p=46377 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-19 11:59:31,956 p=46377 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] *************************************************************************************************************************************************
+2024-03-19 12:07:34,034 p=46377 u=maikltim n=ansible | fatal: [vpn01]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: unknown reason"}
+2024-03-19 12:07:34,035 p=46377 u=maikltim n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2024-03-19 12:07:34,035 p=46377 u=maikltim n=ansible | vpn01                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-03-19 12:07:44,907 p=49195 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-19 12:07:44,912 p=49195 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 12:07:45,017 p=49195 u=maikltim n=ansible | PLAY [Install roles] ********************************************************************************************************************************************************************************
+2024-03-19 12:07:45,040 p=49195 u=maikltim n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2024-03-19 12:07:46,118 p=49195 u=maikltim n=ansible | ok: [vpn01]
+2024-03-19 12:07:46,132 p=49195 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] **************************************************************************************************************************************************************
+2024-03-19 12:07:46,151 p=49195 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-19 12:07:46,159 p=49195 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] *************************************************************************************************************************************************
+2024-03-19 12:15:38,566 p=49195 u=maikltim n=ansible |  [ERROR]: User interrupted execution
+
+2024-03-19 12:15:41,438 p=52225 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-19 12:15:41,443 p=52225 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 12:15:41,540 p=52225 u=maikltim n=ansible | PLAY [Install roles] ********************************************************************************************************************************************************************************
+2024-03-19 12:15:41,565 p=52225 u=maikltim n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2024-03-19 12:15:42,677 p=52225 u=maikltim n=ansible | ok: [vpn01]
+2024-03-19 12:15:42,690 p=52225 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] **************************************************************************************************************************************************************
+2024-03-19 12:15:42,709 p=52225 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-19 12:15:42,716 p=52225 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] *************************************************************************************************************************************************
+2024-03-19 12:23:42,656 p=52225 u=maikltim n=ansible | fatal: [vpn01]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: unknown reason"}
+2024-03-19 12:23:42,657 p=52225 u=maikltim n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2024-03-19 12:23:42,657 p=52225 u=maikltim n=ansible | vpn01                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-03-19 12:31:11,858 p=58229 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-19 12:31:11,865 p=58229 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 12:31:11,976 p=58229 u=maikltim n=ansible | PLAY [Install roles] ********************************************************************************************************************************************************************************
+2024-03-19 12:31:12,000 p=58229 u=maikltim n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2024-03-19 12:31:13,590 p=58229 u=maikltim n=ansible | ok: [vpn01]
+2024-03-19 12:31:13,605 p=58229 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] **************************************************************************************************************************************************************
+2024-03-19 12:31:13,624 p=58229 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-19 12:31:13,631 p=58229 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] *************************************************************************************************************************************************
+2024-03-19 12:37:48,450 p=58229 u=maikltim n=ansible |  [ERROR]: User interrupted execution
+
+2024-03-19 12:45:36,849 p=62770 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-19 12:45:36,855 p=62770 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 12:45:36,956 p=62770 u=maikltim n=ansible | PLAY [Install roles] ********************************************************************************************************************************************************************************
+2024-03-19 12:45:36,981 p=62770 u=maikltim n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2024-03-19 12:45:38,804 p=62770 u=maikltim n=ansible | ok: [vpn01]
+2024-03-19 12:45:38,826 p=62770 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] **************************************************************************************************************************************************************
+2024-03-19 12:45:38,880 p=62770 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-19 12:45:38,893 p=62770 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] *************************************************************************************************************************************************
+2024-03-19 14:00:54,194 p=62770 u=maikltim n=ansible | fatal: [vpn01]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: unknown reason"}
+2024-03-19 14:00:54,195 p=62770 u=maikltim n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2024-03-19 14:00:54,195 p=62770 u=maikltim n=ansible | vpn01                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-03-19 14:00:59,472 p=66041 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-19 14:00:59,478 p=66041 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 14:00:59,582 p=66041 u=maikltim n=ansible | PLAY [Install roles] ********************************************************************************************************************************************************************************
+2024-03-19 14:00:59,607 p=66041 u=maikltim n=ansible | TASK [Gathering Facts] ******************************************************************************************************************************************************************************
+2024-03-19 14:01:00,657 p=66041 u=maikltim n=ansible | ok: [vpn01]
+2024-03-19 14:01:00,670 p=66041 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] **************************************************************************************************************************************************************
+2024-03-19 14:01:00,692 p=66041 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-19 14:01:00,699 p=66041 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] *************************************************************************************************************************************************
+2024-03-19 14:08:59,259 p=66041 u=maikltim n=ansible | fatal: [vpn01]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: unknown reason"}
+2024-03-19 14:08:59,259 p=66041 u=maikltim n=ansible | PLAY RECAP ******************************************************************************************************************************************************************************************
+2024-03-19 14:08:59,260 p=66041 u=maikltim n=ansible | vpn01                      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-03-19 15:08:19,117 p=84288 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-19 15:08:19,122 p=84288 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 15:08:19,241 p=84288 u=maikltim n=ansible | PLAY [Install roles] ***********************************************************************************************************************************************************************
+2024-03-19 15:08:19,249 p=84288 u=maikltim n=ansible | TASK [Gathering Facts] *********************************************************************************************************************************************************************
+2024-03-19 15:08:21,675 p=84288 u=maikltim n=ansible | ok: [vpn01]
+2024-03-19 15:08:21,689 p=84288 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] *****************************************************************************************************************************************************
+2024-03-19 15:08:21,712 p=84288 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-19 15:08:21,720 p=84288 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] ****************************************************************************************************************************************
+2024-03-19 15:10:55,236 p=84288 u=maikltim n=ansible |  [ERROR]: User interrupted execution
+
+2024-03-19 15:28:15,974 p=90091 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 15:28:17,327 p=90091 u=maikltim n=ansible | vpn01 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_all_ipv4_addresses": [
+            "10.0.2.15",
+            "192.168.11.170"
+        ],
+        "ansible_all_ipv6_addresses": [
+            "fe80::1:41ff:fef3:ecd8",
+            "fe80::a00:27ff:fe54:901a"
+        ],
+        "ansible_apparmor": {
+            "status": "enabled"
+        },
+        "ansible_architecture": "x86_64",
+        "ansible_bios_date": "12/01/2006",
+        "ansible_bios_vendor": "innotek GmbH",
+        "ansible_bios_version": "VirtualBox",
+        "ansible_board_asset_tag": "NA",
+        "ansible_board_name": "VirtualBox",
+        "ansible_board_serial": "NA",
+        "ansible_board_vendor": "Oracle Corporation",
+        "ansible_board_version": "1.2",
+        "ansible_chassis_asset_tag": "NA",
+        "ansible_chassis_serial": "NA",
+        "ansible_chassis_vendor": "Oracle Corporation",
+        "ansible_chassis_version": "NA",
+        "ansible_cmdline": {
+            "BOOT_IMAGE": "/boot/vmlinuz-5.4.0-128-generic",
+            "console": "ttyS0",
+            "ro": true,
+            "root": "UUID=60702d9b-fa59-4187-88df-0db2f2548b6c"
+        },
+        "ansible_date_time": {
+            "date": "2024-03-19",
+            "day": "19",
+            "epoch": "1710851297",
+            "epoch_int": "1710851297",
+            "hour": "12",
+            "iso8601": "2024-03-19T12:28:17Z",
+            "iso8601_basic": "20240319T122817003371",
+            "iso8601_basic_short": "20240319T122817",
+            "iso8601_micro": "2024-03-19T12:28:17.003371Z",
+            "minute": "28",
+            "month": "03",
+            "second": "17",
+            "time": "12:28:17",
+            "tz": "UTC",
+            "tz_dst": "UTC",
+            "tz_offset": "+0000",
+            "weekday": "Tuesday",
+            "weekday_number": "2",
+            "weeknumber": "12",
+            "year": "2024"
+        },
+        "ansible_default_ipv4": {
+            "address": "10.0.2.15",
+            "alias": "enp0s3",
+            "broadcast": "10.0.2.255",
+            "gateway": "10.0.2.2",
+            "interface": "enp0s3",
+            "macaddress": "02:01:41:f3:ec:d8",
+            "mtu": 1500,
+            "netmask": "255.255.255.0",
+            "network": "10.0.2.0",
+            "type": "ether"
+        },
+        "ansible_default_ipv6": {},
+        "ansible_device_links": {
+            "ids": {},
+            "labels": {
+                "sda1": [
+                    "cloudimg-rootfs"
+                ],
+                "sdb": [
+                    "cidata"
+                ]
+            },
+            "masters": {},
+            "uuids": {
+                "sda1": [
+                    "60702d9b-fa59-4187-88df-0db2f2548b6c"
+                ],
+                "sdb": [
+                    "2022-10-17-21-57-01-00"
+                ]
+            }
+        },
+        "ansible_devices": {
+            "loop0": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "129480",
+                "sectorsize": "512",
+                "size": "63.22 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop1": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "138880",
+                "sectorsize": "512",
+                "size": "67.81 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop2": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "98272",
+                "sectorsize": "512",
+                "size": "47.98 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop3": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "130880",
+                "sectorsize": "512",
+                "size": "63.91 MB",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop4": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "0",
+                "sectorsize": "512",
+                "size": "0.00 Bytes",
+                "support_discard": "4096",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop5": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "0",
+                "sectorsize": "512",
+                "size": "0.00 Bytes",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop6": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "0",
+                "sectorsize": "512",
+                "size": "0.00 Bytes",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "loop7": {
+                "holders": [],
+                "host": "",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": null,
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "0",
+                "sectorsize": "512",
+                "size": "0.00 Bytes",
+                "support_discard": "0",
+                "vendor": null,
+                "virtual": 1
+            },
+            "sda": {
+                "holders": [],
+                "host": "SCSI storage controller: Broadcom / LSI 53c1030 PCI-X Fusion-MPT Dual Ultra320 SCSI",
+                "links": {
+                    "ids": [],
+                    "labels": [],
+                    "masters": [],
+                    "uuids": []
+                },
+                "model": "HARDDISK",
+                "partitions": {
+                    "sda1": {
+                        "holders": [],
+                        "links": {
+                            "ids": [],
+                            "labels": [
+                                "cloudimg-rootfs"
+                            ],
+                            "masters": [],
+                            "uuids": [
+                                "60702d9b-fa59-4187-88df-0db2f2548b6c"
+                            ]
+                        },
+                        "sectors": "83883999",
+                        "sectorsize": 512,
+                        "size": "40.00 GB",
+                        "start": "2048",
+                        "uuid": "60702d9b-fa59-4187-88df-0db2f2548b6c"
+                    }
+                },
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "83886080",
+                "sectorsize": "512",
+                "size": "40.00 GB",
+                "support_discard": "0",
+                "vendor": "VBOX",
+                "virtual": 1
+            },
+            "sdb": {
+                "holders": [],
+                "host": "SCSI storage controller: Broadcom / LSI 53c1030 PCI-X Fusion-MPT Dual Ultra320 SCSI",
+                "links": {
+                    "ids": [],
+                    "labels": [
+                        "cidata"
+                    ],
+                    "masters": [],
+                    "uuids": [
+                        "2022-10-17-21-57-01-00"
+                    ]
+                },
+                "model": "HARDDISK",
+                "partitions": {},
+                "removable": "0",
+                "rotational": "1",
+                "sas_address": null,
+                "sas_device_handle": null,
+                "scheduler_mode": "mq-deadline",
+                "sectors": "20480",
+                "sectorsize": "512",
+                "size": "10.00 MB",
+                "support_discard": "0",
+                "vendor": "VBOX",
+                "virtual": 1
+            }
+        },
+        "ansible_distribution": "Ubuntu",
+        "ansible_distribution_file_parsed": true,
+        "ansible_distribution_file_path": "/etc/os-release",
+        "ansible_distribution_file_variety": "Debian",
+        "ansible_distribution_major_version": "20",
+        "ansible_distribution_release": "focal",
+        "ansible_distribution_version": "20.04",
+        "ansible_dns": {
+            "nameservers": [
+                "127.0.0.53"
+            ],
+            "options": {
+                "edns0": true,
+                "trust-ad": true
+            },
+            "search": [
+                "LGE.NET"
+            ]
+        },
+        "ansible_domain": "",
+        "ansible_effective_group_id": 1000,
+        "ansible_effective_user_id": 1000,
+        "ansible_enp0s3": {
+            "active": true,
+            "device": "enp0s3",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "off [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off",
+                "rx_checksumming": "off",
+                "rx_fcs": "off",
+                "rx_gro_hw": "off [fixed]",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "off [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "off [fixed]",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_udp_segmentation": "off [fixed]",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "on [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "10.0.2.15",
+                "broadcast": "10.0.2.255",
+                "netmask": "255.255.255.0",
+                "network": "10.0.2.0"
+            },
+            "ipv6": [
+                {
+                    "address": "fe80::1:41ff:fef3:ecd8",
+                    "prefix": "64",
+                    "scope": "link"
+                }
+            ],
+            "macaddress": "02:01:41:f3:ec:d8",
+            "module": "e1000",
+            "mtu": 1500,
+            "pciid": "0000:00:03.0",
+            "promisc": false,
+            "speed": 1000,
+            "timestamping": [
+                "tx_software",
+                "rx_software",
+                "software"
+            ],
+            "type": "ether"
+        },
+        "ansible_enp0s8": {
+            "active": true,
+            "device": "enp0s8",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "off [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "off [fixed]",
+                "netns_local": "off [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off",
+                "rx_checksumming": "off",
+                "rx_fcs": "off",
+                "rx_gro_hw": "off [fixed]",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "on [fixed]",
+                "rx_vlan_offload": "on",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "off [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "off [fixed]",
+                "tx_nocache_copy": "off",
+                "tx_scatter_gather": "on",
+                "tx_scatter_gather_fraglist": "off [fixed]",
+                "tx_sctp_segmentation": "off [fixed]",
+                "tx_tcp6_segmentation": "off [fixed]",
+                "tx_tcp_ecn_segmentation": "off [fixed]",
+                "tx_tcp_mangleid_segmentation": "off",
+                "tx_tcp_segmentation": "on",
+                "tx_udp_segmentation": "off [fixed]",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "on [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "off [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "192.168.11.170",
+                "broadcast": "192.168.11.255",
+                "netmask": "255.255.255.0",
+                "network": "192.168.11.0"
+            },
+            "ipv6": [
+                {
+                    "address": "fe80::a00:27ff:fe54:901a",
+                    "prefix": "64",
+                    "scope": "link"
+                }
+            ],
+            "macaddress": "08:00:27:54:90:1a",
+            "module": "e1000",
+            "mtu": 1500,
+            "pciid": "0000:00:08.0",
+            "promisc": false,
+            "speed": 1000,
+            "timestamping": [
+                "tx_software",
+                "rx_software",
+                "software"
+            ],
+            "type": "ether"
+        },
+        "ansible_env": {
+            "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+            "HOME": "/home/vagrant",
+            "LANG": "en_US.utf8",
+            "LC_ADDRESS": "de_CH.UTF-8",
+            "LC_ALL": "en_US.utf8",
+            "LC_IDENTIFICATION": "de_CH.UTF-8",
+            "LC_MEASUREMENT": "de_CH.UTF-8",
+            "LC_MESSAGES": "en_US.utf8",
+            "LC_MONETARY": "de_CH.UTF-8",
+            "LC_NAME": "de_CH.UTF-8",
+            "LC_NUMERIC": "de_CH.UTF-8",
+            "LC_PAPER": "de_CH.UTF-8",
+            "LC_TELEPHONE": "de_CH.UTF-8",
+            "LC_TIME": "de_CH.UTF-8",
+            "LOGNAME": "vagrant",
+            "MOTD_SHOWN": "pam",
+            "PATH": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+            "PWD": "/home/vagrant",
+            "SHELL": "/bin/bash",
+            "SHLVL": "0",
+            "SSH_CLIENT": "192.168.11.1 53952 22",
+            "SSH_CONNECTION": "192.168.11.1 53952 192.168.11.170 22",
+            "SSH_TTY": "/dev/pts/0",
+            "TERM": "xterm-256color",
+            "USER": "vagrant",
+            "XDG_RUNTIME_DIR": "/run/user/1000",
+            "XDG_SESSION_CLASS": "user",
+            "XDG_SESSION_ID": "18",
+            "XDG_SESSION_TYPE": "tty",
+            "_": "/bin/sh"
+        },
+        "ansible_fibre_channel_wwn": [],
+        "ansible_fips": false,
+        "ansible_form_factor": "Other",
+        "ansible_fqdn": "vpn01",
+        "ansible_hostname": "vpn01",
+        "ansible_hostnqn": "",
+        "ansible_interfaces": [
+            "lo",
+            "enp0s8",
+            "enp0s3"
+        ],
+        "ansible_is_chroot": false,
+        "ansible_iscsi_iqn": "",
+        "ansible_kernel": "5.4.0-128-generic",
+        "ansible_kernel_version": "#144-Ubuntu SMP Tue Sep 20 11:00:04 UTC 2022",
+        "ansible_lo": {
+            "active": true,
+            "device": "lo",
+            "features": {
+                "esp_hw_offload": "off [fixed]",
+                "esp_tx_csum_hw_offload": "off [fixed]",
+                "fcoe_mtu": "off [fixed]",
+                "generic_receive_offload": "on",
+                "generic_segmentation_offload": "on",
+                "highdma": "on [fixed]",
+                "hw_tc_offload": "off [fixed]",
+                "l2_fwd_offload": "off [fixed]",
+                "large_receive_offload": "off [fixed]",
+                "loopback": "on [fixed]",
+                "netns_local": "on [fixed]",
+                "ntuple_filters": "off [fixed]",
+                "receive_hashing": "off [fixed]",
+                "rx_all": "off [fixed]",
+                "rx_checksumming": "on [fixed]",
+                "rx_fcs": "off [fixed]",
+                "rx_gro_hw": "off [fixed]",
+                "rx_udp_tunnel_port_offload": "off [fixed]",
+                "rx_vlan_filter": "off [fixed]",
+                "rx_vlan_offload": "off [fixed]",
+                "rx_vlan_stag_filter": "off [fixed]",
+                "rx_vlan_stag_hw_parse": "off [fixed]",
+                "scatter_gather": "on",
+                "tcp_segmentation_offload": "on",
+                "tls_hw_record": "off [fixed]",
+                "tls_hw_rx_offload": "off [fixed]",
+                "tls_hw_tx_offload": "off [fixed]",
+                "tx_checksum_fcoe_crc": "off [fixed]",
+                "tx_checksum_ip_generic": "on [fixed]",
+                "tx_checksum_ipv4": "off [fixed]",
+                "tx_checksum_ipv6": "off [fixed]",
+                "tx_checksum_sctp": "on [fixed]",
+                "tx_checksumming": "on",
+                "tx_esp_segmentation": "off [fixed]",
+                "tx_fcoe_segmentation": "off [fixed]",
+                "tx_gre_csum_segmentation": "off [fixed]",
+                "tx_gre_segmentation": "off [fixed]",
+                "tx_gso_partial": "off [fixed]",
+                "tx_gso_robust": "off [fixed]",
+                "tx_ipxip4_segmentation": "off [fixed]",
+                "tx_ipxip6_segmentation": "off [fixed]",
+                "tx_lockless": "on [fixed]",
+                "tx_nocache_copy": "off [fixed]",
+                "tx_scatter_gather": "on [fixed]",
+                "tx_scatter_gather_fraglist": "on [fixed]",
+                "tx_sctp_segmentation": "on",
+                "tx_tcp6_segmentation": "on",
+                "tx_tcp_ecn_segmentation": "on",
+                "tx_tcp_mangleid_segmentation": "on",
+                "tx_tcp_segmentation": "on",
+                "tx_udp_segmentation": "off [fixed]",
+                "tx_udp_tnl_csum_segmentation": "off [fixed]",
+                "tx_udp_tnl_segmentation": "off [fixed]",
+                "tx_vlan_offload": "off [fixed]",
+                "tx_vlan_stag_hw_insert": "off [fixed]",
+                "vlan_challenged": "on [fixed]"
+            },
+            "hw_timestamp_filters": [],
+            "ipv4": {
+                "address": "127.0.0.1",
+                "broadcast": "",
+                "netmask": "255.0.0.0",
+                "network": "127.0.0.0"
+            },
+            "ipv6": [
+                {
+                    "address": "::1",
+                    "prefix": "128",
+                    "scope": "host"
+                }
+            ],
+            "mtu": 65536,
+            "promisc": false,
+            "timestamping": [
+                "tx_software",
+                "rx_software",
+                "software"
+            ],
+            "type": "loopback"
+        },
+        "ansible_local": {},
+        "ansible_lsb": {
+            "codename": "focal",
+            "description": "Ubuntu 20.04.5 LTS",
+            "id": "Ubuntu",
+            "major_release": "20",
+            "release": "20.04"
+        },
+        "ansible_machine": "x86_64",
+        "ansible_machine_id": "7359c3e13d4847889937de1ed2342881",
+        "ansible_memfree_mb": 243,
+        "ansible_memory_mb": {
+            "nocache": {
+                "free": 1612,
+                "used": 371
+            },
+            "real": {
+                "free": 243,
+                "total": 1983,
+                "used": 1740
+            },
+            "swap": {
+                "cached": 0,
+                "free": 0,
+                "total": 0,
+                "used": 0
+            }
+        },
+        "ansible_memtotal_mb": 1983,
+        "ansible_mounts": [
+            {
+                "block_available": 9613260,
+                "block_size": 4096,
+                "block_total": 10145391,
+                "block_used": 532131,
+                "device": "/dev/sda1",
+                "fstype": "ext4",
+                "inode_available": 5015714,
+                "inode_total": 5120000,
+                "inode_used": 104286,
+                "mount": "/",
+                "options": "rw,relatime",
+                "size_available": 39375912960,
+                "size_total": 41555521536,
+                "uuid": "60702d9b-fa59-4187-88df-0db2f2548b6c"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 506,
+                "block_used": 506,
+                "device": "/dev/loop0",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 11882,
+                "inode_used": 11882,
+                "mount": "/snap/core20/1623",
+                "options": "ro,nodev,relatime",
+                "size_available": 0,
+                "size_total": 66322432,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 543,
+                "block_used": 543,
+                "device": "/dev/loop1",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 802,
+                "inode_used": 802,
+                "mount": "/snap/lxd/22753",
+                "options": "ro,nodev,relatime",
+                "size_available": 0,
+                "size_total": 71172096,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 384,
+                "block_used": 384,
+                "device": "/dev/loop2",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 486,
+                "inode_used": 486,
+                "mount": "/snap/snapd/17029",
+                "options": "ro,nodev,relatime",
+                "size_available": 0,
+                "size_total": 50331648,
+                "uuid": "N/A"
+            },
+            {
+                "block_available": 0,
+                "block_size": 131072,
+                "block_total": 512,
+                "block_used": 512,
+                "device": "/dev/loop3",
+                "fstype": "squashfs",
+                "inode_available": 0,
+                "inode_total": 12041,
+                "inode_used": 12041,
+                "mount": "/snap/core20/2182",
+                "options": "ro,nodev,relatime",
+                "size_available": 0,
+                "size_total": 67108864,
+                "uuid": "N/A"
+            }
+        ],
+        "ansible_nodename": "vpn01",
+        "ansible_os_family": "Debian",
+        "ansible_pkg_mgr": "apt",
+        "ansible_proc_cmdline": {
+            "BOOT_IMAGE": "/boot/vmlinuz-5.4.0-128-generic",
+            "console": [
+                "tty1",
+                "ttyS0"
+            ],
+            "ro": true,
+            "root": "UUID=60702d9b-fa59-4187-88df-0db2f2548b6c"
+        },
+        "ansible_processor": [
+            "0",
+            "GenuineIntel",
+            "Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz",
+            "1",
+            "GenuineIntel",
+            "Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz"
+        ],
+        "ansible_processor_cores": 2,
+        "ansible_processor_count": 1,
+        "ansible_processor_nproc": 2,
+        "ansible_processor_threads_per_core": 1,
+        "ansible_processor_vcpus": 2,
+        "ansible_product_name": "VirtualBox",
+        "ansible_product_serial": "NA",
+        "ansible_product_uuid": "NA",
+        "ansible_product_version": "1.2",
+        "ansible_python": {
+            "executable": "/usr/bin/python3",
+            "has_sslcontext": true,
+            "type": "cpython",
+            "version": {
+                "major": 3,
+                "micro": 10,
+                "minor": 8,
+                "releaselevel": "final",
+                "serial": 0
+            },
+            "version_info": [
+                3,
+                8,
+                10,
+                "final",
+                0
+            ]
+        },
+        "ansible_python_version": "3.8.10",
+        "ansible_real_group_id": 1000,
+        "ansible_real_user_id": 1000,
+        "ansible_selinux": {
+            "status": "disabled"
+        },
+        "ansible_selinux_python_present": true,
+        "ansible_service_mgr": "systemd",
+        "ansible_ssh_host_key_dsa_public": "AAAAB3NzaC1kc3MAAACBAJEu6hXQfYTgA6KWo54XH3prHg9WCeCg8Mh+wK5LUdW011VT9Gk3N1EfzZePAS/H6NH/ihLGVc7mJbL6UjrZtv57ZeT/XTMW0+EBCLrbPLqZ1FcBsUJjg3tCLNJAMkAuab6C0ABycA4z7VhXv9OIEPs+rwxZn5c8se8LJZQIHnSJAAAAFQD7epcglvNmKZrKTIZ+b0LiE7fYKwAAAIB574PReY6m2y/MFbpliXDo4bYfXPbgQX+nWnyObRVqedbwtFPIQBTNfGUjGfCLwsP0Yh8J+dsaYbesbiaK6bcN35q5t1PdMundOt1S9OGzGahmdUPRTcOpURZ65fh3bBNDcrph5OJmw2rw9o5pHN9vBsBtuski8nb4a5vgLTUnrwAAAIBOpIp1FpCNN1cErpWwhH5Srhv3m+N1TR7xzjz3BmcL0mIEdetWqt/I8Bx5DuNZoVimRRcpuCykNrOUU83xg5sw5/k5jW0cxstWjZw37LZFO+oPyoE0713MMPYRGch7WNYGAkz9gl4rY/OsRkexsOusieO/EXcqDHx7/xG0hKGqCg==",
+        "ansible_ssh_host_key_dsa_public_keytype": "ssh-dss",
+        "ansible_ssh_host_key_ecdsa_public": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFp90b8KTPJ08z3bTVbmnqItlf+sPqfkAJ4O/vIK9WP6ZflxEL66XMxjKL1AlnsoOB280GoU9wid6AbHGLtNlus=",
+        "ansible_ssh_host_key_ecdsa_public_keytype": "ecdsa-sha2-nistp256",
+        "ansible_ssh_host_key_ed25519_public": "AAAAC3NzaC1lZDI1NTE5AAAAIIj3rsxCVjounOGzeMtGeipwSyHkJGdSFFdy4VtSKfn2",
+        "ansible_ssh_host_key_ed25519_public_keytype": "ssh-ed25519",
+        "ansible_ssh_host_key_rsa_public": "AAAAB3NzaC1yc2EAAAADAQABAAABgQDCSgZfbvdBJG93SUicY0zqT6gsSZQlxv1MXFCJRX0Zql86GDkSmUrg6oA+F9OXasWqajB7bxdV0xMH+ISU1UDZAb6eAaO6n5v+uTNicaNN9mdjs7VAXECSLM8CgTcmtMk+LSkb2eoPFuptYuuFHxOperFhYyPvEu/k0LUOPhs1n7L46o6KpZIuCYifCUhJxRqmZByrnv2bLyMpmwBbNXME8SxS4OB4UX+EUyDj5DCBY+7RNT/PFCMxGYaD2/WtsEISPJ2os6isUlJ/I8YyWaHNetnWXVG+ml1bRmX97G9DFZMLS4Bo/fWbS/RCqnxb55Uvmp5YvkfzoHUkTJAoWHlQ93MLICDgCpO659iTRnqv/b2ItmBph5LLqWJGNIQ/kCknA9AohAK9flVl2e2xz7aTDWs/7ohrXyGLgAID56cqjGnemJlKCWtl3Cl9QaH9j6tLR8y09PS83bNjkT0IznYtF5XNXt0/Ejh3V6FOY2tgjf1V//C2CxoEM2qbJ134rxc=",
+        "ansible_ssh_host_key_rsa_public_keytype": "ssh-rsa",
+        "ansible_swapfree_mb": 0,
+        "ansible_swaptotal_mb": 0,
+        "ansible_system": "Linux",
+        "ansible_system_capabilities": [
+            ""
+        ],
+        "ansible_system_capabilities_enforced": "True",
+        "ansible_system_vendor": "innotek GmbH",
+        "ansible_uptime_seconds": 11726,
+        "ansible_user_dir": "/home/vagrant",
+        "ansible_user_gecos": ",,,",
+        "ansible_user_gid": 1000,
+        "ansible_user_id": "vagrant",
+        "ansible_user_shell": "/bin/bash",
+        "ansible_user_uid": 1000,
+        "ansible_userspace_architecture": "x86_64",
+        "ansible_userspace_bits": "64",
+        "ansible_virtualization_role": "guest",
+        "ansible_virtualization_tech_guest": [
+            "virtualbox"
+        ],
+        "ansible_virtualization_tech_host": [],
+        "ansible_virtualization_type": "virtualbox",
+        "discovered_interpreter_python": "/usr/bin/python3",
+        "gather_subset": [
+            "all"
+        ],
+        "module_setup": true
+    },
+    "changed": false
+}
+2024-03-19 15:47:12,090 p=95717 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_hard_one/ansible/ansible.cfg as config file
+2024-03-19 15:47:12,095 p=95717 u=maikltim n=ansible | [WARNING]: Found both group and host with same name: db
+
+2024-03-19 15:47:12,218 p=95717 u=maikltim n=ansible | PLAY [Install roles] ***********************************************************************************************************************************************************************
+2024-03-19 15:47:12,226 p=95717 u=maikltim n=ansible | TASK [Gathering Facts] *********************************************************************************************************************************************************************
+2024-03-19 15:47:13,846 p=95717 u=maikltim n=ansible | ok: [vpn01]
+2024-03-19 15:47:13,861 p=95717 u=maikltim n=ansible | TASK [install_openvpn : include_tasks] *****************************************************************************************************************************************************
+2024-03-19 15:47:13,884 p=95717 u=maikltim n=ansible | included: /home/maikltim/devops_tasks/devops_task_hard_one/ansible/roles/install_openvpn/tasks/server.yml for vpn01
+2024-03-19 15:47:13,905 p=95717 u=maikltim n=ansible | TASK [install_openvpn : OpenVPN | install packeges] ****************************************************************************************************************************************
+2024-03-19 15:48:20,787 p=95717 u=maikltim n=ansible |  [ERROR]: User interrupted execution
+

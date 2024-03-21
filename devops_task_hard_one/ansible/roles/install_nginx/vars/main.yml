@@ -1,2 +1,3 @@
 ---
 # vars file for install_nginx
+nginx_listen_port: 8080

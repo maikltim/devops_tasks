@@ -1,7 +1,24 @@
 ---
 - name: Install roles
+  hosts: app
+  become: true
+  gather_facts: true
+  roles:
+    - install_postgres
+
+- name: Install roles
+  hosts: app
+  become: true
+  gather_facts: true
+  roles:
+    - install_nginx
+
+
+- name: Install roles
   hosts: vpn01
   become: true
   gather_facts: true
   roles:
     - install_openvpn
+
+

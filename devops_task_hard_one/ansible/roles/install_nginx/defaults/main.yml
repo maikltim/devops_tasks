@@ -1,2 +1,3 @@
 ---
-# defaults file for install_nginx
+# remove nginx default site
+nginx_remove_default: true

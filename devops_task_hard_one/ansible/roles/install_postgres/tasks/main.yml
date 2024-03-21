@@ -1,70 +1,54 @@
 ---
-  # Switch off firewalld and delete it form autoload
-  - name: disabled firewalld service
-    service:
-      name: firewalld
-      state: stopped 
-      enabled: false 
-  
-  # Switch off SELinux
-  - name: Disable SELinux 
-    selinux:
-      state: disabled 
-
-  #Disabled SELinux after reload
-  - name: ensure SELinux is set to disabled mode 
-    lineinfile:
-      path: /etc/selinux/config
-      regexp: '^SELINUX='
-      line: SELINUX=disabled 
+ 
+- name: Update apt repo and cache on Ubuntu box
+  apt:
+    update_cache: yes
+    force_apt_get: yes
+    cache_valid_time: 3600
 
 
-  - name: Import GPG-key PostgreSql
-    ansible.builtin.rpm_key:
-      state: present 
-      key: https://download.postgresql.org/pub/repos/yum/RPM-GPG-KEY-PGDG-14
+# - name: Install Postgressql | install packages 
+#   apt:
+#     name: 
+#       - wget
+#       - acl 
+#     state: latest
 
 
-  # Add repo postgres 
-  - name: Install repo
-    apt: 
-      name: 'https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm' 
-      state: present 
+- name: Set up Postgres 14 repo
+  shell: |
+    echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+  args:
+    warn: no
 
 
-  # Switch off old module
-  - name: disable old postgresql module
-    shell: dnf -qy module disable postgresql 
+- name: Install postgresql
+  apt:
+    name: postgresql-14
+    update_cache: yes
+  notify:
+    - Enable Postgresql
 
 
-  # Install postgresql14-server
-  - name: Install postgresql14-server 
-    apt:
-      name: postgresql14-server
-      state: present 
-      update_cahe: true 
+- name: Ensure PostgreSQL is listening on *
+  lineinfile:
+    dest: /etc/postgresql/14/main/postgresql.conf
+    regexp: '^listen_addresses\s*='
+    line: "listen_addresses='*'"
+    state: present
+  notify: Restart Postgresql
 
+- name: Add new configuration to "pg_hba.conf"
+  blockinfile:
+    dest: /etc/postgresql/14/main/pg_hba.conf
+    block: |
+      host    all             all             0.0.0.0/0                md5
+      host    all             all             ::/0                     md5
+  notify: Restart Postgresql
 
-  # Check that postgresql on host not initialize yet
-  - name: check init 
-    state: 
-      path: /var/lib/pgsql/14/data/pg_stat
-    register: state_result 
-
-
-  # Do initialize postgresql 
-  - name: Initialization setup
-    shell: sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
-    when: not state_result.stat_exists 
-
-
-  # Start postgresql-14
-  - name: enable and start service 
-    service: 
-      name: postgresql-14
-      state: started 
-      enabled: true 
-
-
-
-      
+- name: Change peer identification to trust
+  shell: /bin/sed -i '/^local/s/peer/trust/' /etc/postgresql/14/main/pg_hba.conf
+  args:
+    warn: no
+  notify: Restart Postgresql

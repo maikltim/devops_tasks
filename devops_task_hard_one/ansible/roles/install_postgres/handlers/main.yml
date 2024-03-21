@@ -1,2 +1,32 @@
 ---
 # handlers file for install_postgres
+- name: Restart Postgresql
+  systemd:
+    name: postgresql
+    state: restarted
+
+- name: Start Postgresql
+  systemd:
+    name: postgresql
+    state: started
+
+- name: Stop Postgresql
+  systemd:
+    name: postgresql
+    state: stopped
+
+- name: Enable Postgresql
+  systemd:
+    name: postgresql
+    enabled: yes
+
+
+- name: Create a Superuser PostgreSQL database user
+  become: true
+  become_user: postgres
+  postgresql_user:
+    name: '{{ postgres_root_user }}'
+    password: '{{ postgres_root_pass }}'
+    role_attr_flags: CREATEDB,SUPERUSER,CREATEROLE
+    encrypted: yes
+    state: present

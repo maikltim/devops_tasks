@@ -42,7 +42,6 @@ sudo systemctl restart tftpd-hpa
 
 > Конфигурация DHCP Server 
 
-```
 sudo vi /etc/dhcp/dhcpd.conf 
 
 # Specify the nameservers

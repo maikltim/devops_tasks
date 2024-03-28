@@ -1,0 +1,71 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+    config.vm.box = "ubuntu/focal64"
+      config.vbguest.auto_update = false
+    
+      config.vm.define "app01" do |app01|
+          app01.vm.network "private_network", ip: "192.168.11.150"
+          app01.vm.provider "virtualbox" do |v|
+          v.memory = 2048
+          v.cpus = 2
+        end
+        app01.vm.hostname = "app01"
+      end
+    
+      config.vm.define "gitlab" do |gitlab|
+          gitlab.vm.network "private_network", ip: "192.168.11.160"
+          gitlab.vm.provider "virtualbox" do |v|
+          v.memory = 4096
+          v.cpus = 4
+        end
+        gitlab.vm.hostname = "gitlab"
+        #config.vm.provision "shell", path: "./scripts/gitlab.sh"
+      end
+  
+      config.vm.define "vpn01" do |vpn01|
+          vpn01.vm.network "private_network", ip: "192.168.11.170"
+          vpn01.vm.provider "virtualbox" do |v|
+            v.memory = 2048
+            v.cpus = 2
+          end
+          vpn01.vm.hostname = "vpn01"
+      end
+  
+      config.vm.define "db01" do |db01|
+          db01.vm.network "private_network", ip: "192.168.11.180"
+          db01.vm.provider "virtualbox" do |v|
+            v.memory = 2048
+            v.cpus = 2
+          end
+          db01.vm.hostname = "db01"
+          db01.vm.provision "ansible" do |ansible|
+            ansible.playbook = "ansible/provision.yml"
+            ansible.inventory_path = "ansible/hosts"
+            ansible.host_key_checking = "false"
+            ansible.limit = "all"
+          end
+      end
+  
+      config.vm.define "prod01" do |prod01|
+        prod01.vm.network "private_network", ip: "192.168.11.140"
+        prod01.vm.provider "virtualbox" do |v|
+          v.memory = 2048
+          v.cpus = 2
+        end
+        prod01.vm.hostname = "prod01"
+    end
+
+      config.vm.define "logsrv" do |logsrv|
+        logsrv.vm.network "private_network", ip: "192.168.11.190"
+        logsrv.vm.provider "virtualbox" do |v|
+          v.memory = 2048
+          v.cpus = 2
+        end
+        logsrv.vm.hostname = "logsrv"
+    end
+    
+  end
+  
+    

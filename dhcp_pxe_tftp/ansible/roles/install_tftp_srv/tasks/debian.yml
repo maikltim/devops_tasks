@@ -1,0 +1,7 @@
+--- 
+- name: debian | Install TFTP-HPA 
+  ansible.builtin.apt:
+    name: tftpd-hpa
+    state: present
+    update_cache: yes 
+  become: true 

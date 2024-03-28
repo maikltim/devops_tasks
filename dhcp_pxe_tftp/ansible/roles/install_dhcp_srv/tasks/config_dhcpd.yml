@@ -1,0 +1,10 @@
+--- 
+- name: DHCP-SERVER 
+  template:
+    src: dhcpd.conf.j2 
+    dest: /etc/dhcp/dhcpd.conf
+    owner: root 
+    group: root 
+    mode: 0644 
+  become: true 
+  notify: restart isc-dhcp-server

@@ -1,0 +1,35 @@
+---
+- name: TFTP | ensuring tftp_directory exists
+  file:
+    dest: "{{ tftp_directory }}"
+    state: directory 
+    owner: tftp 
+    group: tftp 
+  become: true 
+
+
+- name: TFTP | configuring tftpd 
+  ansible.builtin.template:
+    src: tftpd-hpa.j2
+    dest: /etc/default/tftpd-hpa
+    owner: root 
+    group: root 
+    mode: 0644 
+  become: true 
+  notify: restart tftpd-hpa 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

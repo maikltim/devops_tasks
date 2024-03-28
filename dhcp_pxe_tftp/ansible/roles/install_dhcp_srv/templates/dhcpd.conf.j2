@@ -1,0 +1,14 @@
+# Specify the nameservers
+option domain-name-servers 8.8.8.8, 8.8.4.4;
+
+# Uncomment this line if you are using your local network
+authoritative;
+
+# Configure your subnet
+subnet 10.0.0.0 netmask 255.255.0.0 {
+    range 10.0.0.30 10.0.0.50;
+    #option routers 10.10.30.10;
+    filename "pxelinux.0"; # Load file 
+    next-server 10.0.0.20; # TFTP Server 
+    #option bootfile-name "syslinux.efi";
+}

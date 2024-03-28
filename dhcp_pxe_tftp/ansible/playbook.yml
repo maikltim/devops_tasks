@@ -1,0 +1,15 @@
+---
+- name: Install roles
+  hosts: pxedxcp
+  become: true
+  gather_facts: true
+  roles:
+    - install_tftp_srv
+
+
+- name: Install roles
+  hosts: pxedxcp
+  become: true
+  gather_facts: true
+  roles:
+    - install_dhcp_srv

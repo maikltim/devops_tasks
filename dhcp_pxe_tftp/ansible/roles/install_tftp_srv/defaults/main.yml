@@ -1,0 +1,7 @@
+---
+# Defines tftp root directory
+tftp_directory: /tftpboot
+
+# Defines tftp options for daemon...(-c allow new files to be created)
+tftp_options: --secure
+

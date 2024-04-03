@@ -219,3 +219,27 @@ systemctl daemon-reload
 systemctl enable node_exporter
 systemctl start node_exporter
 ```
+
+## Add to prometeus config web01 & db01
+```
+cd /etc/prometheus/
+sudo vi prometheus.yml
+global:
+  scrape_interval: 10s
+scrape_configs:
+- job_name: 'prometheus_master'
+  scrape_interval: 5s
+  static_configs:
+   - targets: ['localhost:9090']
+
+- job_name: 'node_exporter_web01'
+  scrape_interval: 5s
+  static_configs:
+    - targets: ['192.168.11.150:9100']
+
+- job_name: 'node_exporter_db01'
+  scrape_interval: 5s
+  static_configs:
+    - targets: ['192.168.11.160:9100']
+
+```

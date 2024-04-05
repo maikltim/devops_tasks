@@ -1,0 +1,66 @@
+2024-04-05 12:02:30,722 p=18702 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_normal_two/ansible/ansible.cfg as config file
+2024-04-05 12:02:30,727 p=18702 u=maikltim n=ansible | [WARNING]: Unable to parse /home/maikltim/devops_tasks/devops_task_normal_two/ansible/hosts as an inventory source
+
+2024-04-05 12:02:30,727 p=18702 u=maikltim n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-05 12:02:30,731 p=18702 u=maikltim n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2024-04-05 12:02:41,906 p=18806 u=maikltim n=ansible | Using /home/maikltim/devops_tasks/devops_task_normal_two/ansible/ansible.cfg as config file
+2024-04-05 12:02:41,909 p=18806 u=maikltim n=ansible | [WARNING]: Unable to parse /home/maikltim/devops_tasks/devops_task_normal_two/ansible/hosts as an inventory source
+
+2024-04-05 12:02:41,909 p=18806 u=maikltim n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-05 12:02:41,912 p=18806 u=maikltim n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2024-04-05 12:02:41,912 p=18806 u=maikltim n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: web01
+
+2024-04-05 12:04:20,107 p=19496 u=maikltim n=ansible | [WARNING]: Unable to parse /home/maikltim/devops_tasks/devops_task_normal_two/ansible/inventory as an inventory source
+
+2024-04-05 12:04:20,108 p=19496 u=maikltim n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2024-04-05 12:04:20,110 p=19496 u=maikltim n=ansible | {
+    "_meta": {
+        "hostvars": {}
+    },
+    "all": {
+        "children": [
+            "ungrouped"
+        ]
+    }
+}
+2024-04-05 12:04:50,746 p=19763 u=maikltim n=ansible | {
+    "_meta": {
+        "hostvars": {
+            "web01": {
+                "ansible_host": "192.168.11.150",
+                "ansible_ssh_private_key_file": "/home/maikltim/devops_tasks/devops_task_normal_two/.vagrant/machines/web01/virtualbox/private_key",
+                "ansible_user": "vagrant"
+            }
+        }
+    },
+    "all": {
+        "children": [
+            "ungrouped",
+            "web"
+        ]
+    },
+    "web": {
+        "hosts": [
+            "web01"
+        ]
+    }
+}
+2024-04-05 12:05:20,882 p=19971 u=maikltim n=ansible | web01 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+2024-04-05 12:05:56,140 p=20212 u=maikltim n=ansible | web01 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}

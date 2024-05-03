@@ -243,3 +243,7 @@ scrape_configs:
     - targets: ['192.168.11.160:9100']
 
 ```
+
+## Install App by instruction
+
+> https://piwigo.org/guides/install/manual

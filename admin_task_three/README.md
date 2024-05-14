@@ -88,3 +88,63 @@ man nfs
 ## 4.
 
 ### Установите и настройте Nginx на виртуальную машину “web01”. Настроить сервер в качестве proxy на localhost
+
+```
+sudo apt-get install nginx -y
+
+mv /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+
+bash -c 'cat > /etc/nginx/sites-available/default << EOF 
+server {
+    	listen 80 default_server;
+    	listen [::]:80 default_server;
+
+	root /var/www/html;
+
+	index index.html index.htm index.nginx-debian.html;
+    	server_name _;
+    	location / {
+            	proxy_pass http://127.0.0.1:8000;
+            	}
+
+}
+EOF'
+
+service restart 
+Check Nginx service status
+systemctl status nginx
+```
+
+### Clone project
+
+```
+cd /nfs/files/
+git clone https://gitfront.io/r/deusops/BC6tmrogTrbh/django-filesharing.git
+```
+
+### Install Python && pip
+```
+sudo apt-get install python3.10-venv -y
+sudo apt-get install python3-pip -y
+```
+
+### Copy image directory
+```
+cp -r /nfs/files/django-filesharing/public/static/image /home/vagrant/image
+```
+
+### Move to project directory
+
+```
+cd /home/vagrant/files/django-filesharing
+```
+### Set up and activate virtual enviroment, Install requirements, Start server
+
+```
+python3 -m venv venv
+source venv/bin/activate
+
+pip3 install -r requirements.txt
+python3 manage.py migrate
+python3 manage.py runserver
+```

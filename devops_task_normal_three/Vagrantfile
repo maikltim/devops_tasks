@@ -1,44 +1,26 @@
-require 'yaml'
-vars = YAML.load_file 'vagrant.yml'
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
 
-Vagrant.configure("2") do |config|
-  config.vm.box = vars['os-distro']
-
-  # Files server
-  config.vm.define "files01" do |f|
-    f.vm.hostname = vars['hostname_files']
-    f.vm.network vars['network_type'], bridge: vars['bridge'], ip: vars['ip_address_files'], hostname: true
-    f.vm.network :forwarded_port, guest: vars['guest_ssh_port'], host: vars['host_ssh_port_files'], id: "ssh", auto_correct: true
-    f.vm.provision "shell", path: vars['script_path_files']
-    # f.vm.provision "shell", inline: <<-SHELL
-    #     apt-get update
-    #     apt-get upgrade -y
-    #   SHELL
-    f.vm.provider "virtualbox" do |v|
-      v.name = vars['vm_name_files']
+Vagrant.configure(2) do |config|
+  config.vm.box = "ubuntu/focal64"
+  config.vbguest.auto_update = false
+  
+  config.vm.define "web01" do |web01|
+      web01.vm.network "private_network", ip: "192.168.11.150"
+      web01.vm.provider "virtualbox" do |v|
+      v.memory = 2048
+      v.cpus = 2
     end
+      web01.vm.hostname = "web01"
   end
-
-  # Web server
-  config.vm.define "web01" do |web|
-    web.vm.hostname = "web01"
-    web.vm.network vars['network_type'], bridge: vars['bridge'], ip: vars['ip_address_web'], hostname: true
-    web.vm.network "forwarded_port", guest: vars['guest_port'], host: vars['host_port']
-    web.vm.network :forwarded_port, guest: vars['guest_ssh_port'], host: vars['host_ssh_port_web'], id: "ssh", auto_correct: true
-    web.vm.provision "shell", path: vars['script_path_web']
-    # web.vm.provision "shell", inline: <<-SHELL
-    #     apt-get update
-    #     apt-get upgrade -y
-    #   SHELL
-    web.vm.provider "virtualbox" do |v|
-      v.name = vars['vm_name_web']
-    end
+  
+  config.vm.define "files01" do |files01|
+      files01.vm.network "private_network", ip: "192.168.11.160"
+      files01.vm.provider "virtualbox" do |v|
+      v.memory = 4096
+      v.cpus = 4
   end
-
-  config.vm.provider "virtualbox" do |v|
-    v.cpus = vars['cpus']
-    v.memory = vars['memory']
+  files01.vm.hostname = "files01"
   end
-
+  
 end
-

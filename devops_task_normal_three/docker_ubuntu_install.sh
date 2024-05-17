@@ -27,7 +27,7 @@ sudo apt-get update
 # Install the lates version 
 sudo apt-get -y install docker-ce docker-compose docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# Check Nginx service status
+# Check Docker service status
 service_name="docker"
 
 if systemctl is-active --quiet "$service_name.service" ; then

@@ -1,0 +1,35 @@
+---
+- name: Update repositories cache and install "nfs-kernel-server" package
+  apt:
+    name: "nfs-kernel-server={{ nfs_kernel_server_version }}"
+    update_cache: yes
+
+- name: Create directory for sharing
+  file:
+    path="{{ nfs_server_shared_directory_path }}"
+    mode="{{ nfs_server_shared_directory_mode }}"
+    owner="{{ nfs_server_shared_directory_owner }}"
+    group="{{ nfs_server_shared_directory_group }}"
+    state=directory
+
+- name: Add string at "/etc/exports"
+  lineinfile:
+    path: "{{ nfs_server_etc_exports_path }}"
+    line: " {{ nfs_server_line_to_etc_exports }}"
+  register: etc_exports_configured
+
+- name: Restart "nfs-kernel-server.service"
+  systemd:
+    name: nfs-kernel-server
+    state: restarted
+  when: etc_exports_configured.changed
+
+- name: Enable UFW
+  ufw:
+    state: enabled
+
+- name: Allow traffic
+  ufw:
+    rule: allow
+  loop:
+    - "{{ nfs_server_allow_traffic_from }}"

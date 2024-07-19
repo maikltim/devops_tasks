@@ -1,0 +1,22 @@
+---
+- hosts: nfs_server
+  become: true
+  become_method: sudo
+  become_user: root
+  remote_user: ansible
+  roles:
+    - role: nfs-server
+      tags: nfs-server
+
+- hosts: nfs_client
+  become: true
+  become_method: sudo
+  become_user: root
+  remote_user: ansible
+  roles:
+    - role: nfs-client
+      tags: nfs-client
+    - role: nginx
+      tags: nginx
+    - role: docker
+      tags: docker

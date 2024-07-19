@@ -1,0 +1,15 @@
+---
+services:
+  app:
+    image: "{{ docker_compose_path_to_image }}"
+    container_name: "{{ docker_compose_container_name }}"
+    networks:
+      - "{{ docker_compose_network_name }}"
+    ports:
+      - "{{ docker_compose_port_forward }}"
+    restart: "{{ docker_compose_restart_policy }}"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - "{{ docker_compose_nfs_volume }}"
+networks:
+   "{{ docker_compose_network_name }}":

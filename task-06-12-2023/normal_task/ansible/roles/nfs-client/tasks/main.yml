@@ -1,0 +1,21 @@
+---
+- name: Update repositories cache and install "nfs-common" package
+  apt:
+    name: "nfs-common={{ nfs_client_version }}"
+    update_cache: yes
+
+- name: Create directory for sharing
+  file:
+    path="{{ nfs_client_shared_directory_path }}"
+    mode="{{ nfs_client_shared_directory_mode }}"
+    owner="{{ nfs_client_shared_directory_owner }}"
+    group="{{ nfs_client_shared_directory_group }}"
+    state=directory
+
+- name: Mount nfs volume
+  ansible.posix.mount:
+    src: "{{ nfs_client_path_to_nfs_server_dir }}"
+    path: "{{ nfs_client_shared_directory_path }}"
+    opts: "{{ nfs_client_shared_directory_options }}"
+    state: "{{ nfs_client_shared_directory_state }}"
+    fstype: "{{ nfs_client_shared_directory_fstype }}"

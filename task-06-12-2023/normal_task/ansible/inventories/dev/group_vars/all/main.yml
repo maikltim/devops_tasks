@@ -1,0 +1,45 @@
+# -----------------nfs-server role-----------------
+nfs_server_etc_exports_path: "/etc/exports"
+nfs_server_line_to_etc_exports: '/mnt/nfsdir *(rw,sync,no_subtree_check,insecure)'
+nfs_server_allow_traffic_from: "192.168.0.0/16"
+#nfs_kernel_server_version: "1:1.3.4-2.5ubuntu3.5" # for Ubuntu:focal (20.04)
+nfs_kernel_server_version: "1:2.6.1-1ubuntu1.2" # for Ubuntu:jemmy (22.04)
+
+#-----------------nfs-client role-----------------
+nfs_client_shared_directory_path: "/mnt/nfsdir_client"
+nfs_client_path_to_nfs_server_dir: "192.168.10.12:/mnt/nfsdir"
+#nfs_client_version: "1:1.3.4-2.5ubuntu3.5" # for Ubuntu:focal (20.04)
+nfs_client_version: "1:2.6.1-1ubuntu1.2" # for Ubuntu:jemmy (22.04)
+
+# -----------------nginx role-----------------
+nginx_version: latest
+nginx_template_path: "{{ inventory_dir }}/templates"
+
+# nginx config
+nginx_server_name: myproxy
+nginx_server_listen_port: 80
+nginx_server_default_location: /
+nginx_server_default_location_proxy_pass: http://127.0.0.1:8000
+nginx_server_app_media_location: /media/
+nginx_server_app_media_alias: /mnt/nfsdir_client
+
+# -----------------docker role-----------------
+# dockerfile
+docker_compose_network_name: "django-app-network"
+docker_compose_container_name: "django"
+docker_compose_restart_policy: "always"
+docker_compose_nfs_volume: "/mnt/nfsdir_client:/build/public/static"
+docker_compose_port_forward: "8000:8000"
+
+docker_compose_destination_path: "/home/ansible/docker-compose.yaml"
+docker_compose_directory_destination_path: "/home/ansible/"
+
+#docker_compose_start: false
+docker_compose_start: yes
+
+#docker_compose_template_path: "{{ role_path }}/templates"
+docker_compose_template_path: "{{ inventory_dir }}/templates/docker-compose.yaml.j2"
+docker_version: "6.1.3"
+docker_compose_version: "1.29.2"
+#docker_pip3_version: "20.0.2-5ubuntu1.10" # for Ubuntu:focal (20.04)
+docker_pip3_version: "22.0.2+dfsg-1ubuntu0.4" # for Ubuntu:jemmy (22.04)

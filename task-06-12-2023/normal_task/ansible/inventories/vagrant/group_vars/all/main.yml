@@ -1,0 +1,21 @@
+nginx_version: latest
+
+
+nginx_server_name: myproxy
+nginx_server_listen_port: 80
+nginx_server_default_location: /
+nginx_server_default_location_proxy_pass: http://127.0.0.1:8000
+nginx_server_app_media_location: /media/
+nginx_server_app_media_alias: /mnt/nfsdir_client
+
+nginx_template_path: "{{ inventory_dir }}/templates"
+
+docker_compose_network_name: "django-app-network"
+docker_compose_container_name: "django"
+docker_compose_restart_policy: "always"
+docker_compose_nfs_volume: "/mnt/nfsdir_client:/home/vagrant/nfs-dir"
+docker_compose_port_forward: "8000:8000"
+
+docker_compose_start: yes
+docker_compose_destination_path: "/home/vagrant/docker-compose.yaml"
+docker_compose_template_path: "{{ inventory_dir }}/templates/docker-compose.yaml.j2"

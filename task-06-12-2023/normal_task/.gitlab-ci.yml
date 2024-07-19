@@ -1,0 +1,37 @@
+stages:
+  - deploy
+
+variables:
+  INVENTORY_PATH: "Normal/ansible/inventories/dev/hosts"
+  REQUIREMENTS_PATH: "Normal/ansible/requirements.yaml"
+  RUNNER_IMAGE: registry.gitlab.com/maikltim/docker-image-with-ansible/image-with-ansible:1.0.0
+  DEBUG_LEVEL: -v
+  NFS_SERVER_GROUP: "[nfs_server]"
+  NFS_SERVER_HOST: "$NFS_SERVER_EXTERNAL_IP"
+  NFS_CLIENT_GROUP: "[nfs_client]"
+  NFS_CLIENT_HOST: "$NFS_CLIENT_EXTERNAL_IP"
+
+deploy-to-servers:
+  stage: deploy
+  image: $RUNNER_IMAGE
+  variables:
+    GIT_STRATEGY: clone
+    ANSIBLE_HOST_KEY_CHECKING: "False"
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - chmod 400 "$NFS_SERVER_PRIVATE_KEY"
+    - chmod 400 "$NFS_CLIENT_PRIVATE_KEY"
+    - base64 -d "$NFS_SERVER_PRIVATE_KEY" | ssh-add -
+    - base64 -d "$NFS_CLIENT_PRIVATE_KEY" | ssh-add -
+    - echo $NFS_SERVER_GROUP > $INVENTORY_PATH
+    - echo $NFS_SERVER_HOST >> $INVENTORY_PATH
+    - echo "" >> $INVENTORY_PATH
+    - echo $NFS_CLIENT_GROUP >> $INVENTORY_PATH
+    - echo $NFS_CLIENT_HOST >> $INVENTORY_PATH
+    - cat $INVENTORY_PATH
+  script:
+    - ansible-galaxy install -r $REQUIREMENTS_PATH -f
+    - ansible-playbook Normal/ansible/playbook.yaml -i $INVENTORY_PATH $DEBUG_LEVEL
+  rules:
+    - when: manual

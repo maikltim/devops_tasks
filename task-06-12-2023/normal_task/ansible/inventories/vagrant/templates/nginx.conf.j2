@@ -1,0 +1,12 @@
+server {
+    server_name {{ nginx_server_name }};
+    listen {{ nginx_server_listen_port }};
+
+    location {{ nginx_server_default_location }} {
+        proxy_pass {{ nginx_server_default_location_proxy_pass }};
+    }
+
+    location {{ nginx_server_app_media_location }} {
+        alias {{ nginx_server_app_media_alias }};
+    }
+}

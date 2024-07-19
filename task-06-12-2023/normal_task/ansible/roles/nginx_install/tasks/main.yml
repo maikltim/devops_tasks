@@ -1,0 +1,33 @@
+---
+- name: Install nginx
+  apt:
+    name: nginx
+    state: "{{ nginx_version }}"
+    update_cache: yes
+
+- name: Remove default site
+  file:
+    path: "{{ nginx_default_vhost_path }}"
+    state: absent
+  when: nginx_remove_default
+
+- name: Configure sites-available
+  template:
+    src: "{{ item }}"
+    dest: "{{ nginx_sites_available_path }}"
+    backup: yes
+  with_fileglob:
+    - "{{ nginx_template_path }}/*.conf.j2"
+  notify:
+    - "check nginx configuration"
+
+- name: Enable new vhost in nginx
+  file:
+    src: "{{ nginx_sites_available_path }}/{{ item | basename }}"
+    dest: "{{ nginx_sites_enabled_path }}/{{ item | basename }}"
+    state: link
+  with_fileglob:
+    - "{{ nginx_template_path }}/*.conf.j2"
+  notify:
+    - "service nginx restart"
+

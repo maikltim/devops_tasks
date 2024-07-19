@@ -1,0 +1,14 @@
+---
+# remove nginx default site
+nginx_remove_default: true
+
+# path to nginx site-template
+nginx_template_path: "{{ role_path }}/templates"
+
+nginx_version: "latest"
+
+nginx_system_user: "www-data"
+nginx_sites_enabled_path: /etc/nginx/sites-enabled
+nginx_sites_available_path: /etc/nginx/sites-available
+nginx_default_vhost_path: /etc/nginx/sites-enabled/default
+

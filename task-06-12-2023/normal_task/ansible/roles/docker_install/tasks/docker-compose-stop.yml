@@ -1,0 +1,26 @@
+- name: Останавливаем старый docker-compose
+  community.docker.docker_compose_v2:
+    project_src: "{{ docker_compose_stop_directory_destination_path }}"
+    project_name: "{{ docker_compose_stop_project_name }}"
+    state: absent
+  when: docker_compose_stop
+  failed_when: false
+  register: is_docker_compose_stop
+
+- name: Проверяем результат остановки docker-compose
+  debug:
+    var: is_docker_compose_stop
+  when: docker_compose_stop
+
+- name: Удаляем старый docker-compose
+  file:
+    path: "{{ docker_compose_remove_destination_path }}"
+    state: absent
+  when: docker_compose_remove
+  failed_when: false
+  register: is_docker_compose_remove
+
+- name: Проверяем результат удаления docker-compose
+  debug:
+    var: is_docker_compose_remove
+  when: docker_compose_remove

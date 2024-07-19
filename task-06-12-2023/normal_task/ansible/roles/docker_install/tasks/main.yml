@@ -1,0 +1,34 @@
+---
+- name: Проверяем ansible_os_family
+  debug:
+    var: ansible_os_family
+
+- name: Проверяем ansible_distribution_major_version
+  debug:
+    var: ansible_distribution_major_version
+
+- ansible.builtin.include_tasks: variables.yml
+
+- ansible.builtin.include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian' and docker_install
+
+- ansible.builtin.include_tasks: add-mirrors.yml
+  when: docker_change_registry_mirrors
+
+- ansible.builtin.include_tasks: install-pip3.yml
+  when: docker_pip3_install
+
+- ansible.builtin.include_tasks: docker-compose-stop.yml
+  when: docker_compose_stop
+
+- ansible.builtin.include_tasks: docker-compose-template.yml
+  when: docker_compose_template
+
+- ansible.builtin.include_tasks: docker-compose-env-file.yml
+  when: docker_compose_env_file
+
+- ansible.builtin.include_tasks: docker-compose-start.yml
+  when: docker_compose_start
+
+- ansible.builtin.include_tasks: users.yml
+  when: docker_add_user_to_docker_group

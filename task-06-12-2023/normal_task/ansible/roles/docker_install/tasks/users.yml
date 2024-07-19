@@ -1,0 +1,10 @@
+---
+- name: Добавляем пользователей в docker group
+  user:
+    name: "{{ item }}"
+    groups: docker
+    append: true
+  loop: "{{ docker_users }}"
+
+- name: Reset ssh connection to apply user changes.
+  meta: reset_connection

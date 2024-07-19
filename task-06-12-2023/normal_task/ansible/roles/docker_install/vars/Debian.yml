@@ -1,0 +1,29 @@
+---
+__docker_conflict_packages:
+  - docker.io
+  - docker-doc
+  - docker-compose
+  - docker-compose-v2
+  - podman-docker
+  - containerd
+  - runc
+
+__docker_supporting_packages:
+  - ca-certificates
+  - curl
+
+__docker_gpg_directory_path: "/etc/apt/keyrings"
+__docker_gpg_directory_mode: "0755"
+__docker_gpg_directory_owner: "root"
+__docker_gpg_directory_group: "root"
+
+__docker_gpg_key_url: "https://download.docker.com/linux/ubuntu/gpg"
+__docker_gpg_key_dest: "/etc/apt/keyrings/docker.asc"
+__docker_gpt_key_mode: "a+r"
+
+__docker_packages:
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin

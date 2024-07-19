@@ -1,0 +1,8 @@
+---
+- name: Прокидываем файл с переменными для docker-compose
+  template:
+    src: "{{ docker_compose_env_file_src }}"
+    dest: "{{ docker_compose_env_file_dest }}"
+    mode: "{{ docker_compose_env_file_mode }}"
+    group: "{{ docker_compose_env_file_group }}"
+    owner: "{{ docker_compose_env_file_owner }}"

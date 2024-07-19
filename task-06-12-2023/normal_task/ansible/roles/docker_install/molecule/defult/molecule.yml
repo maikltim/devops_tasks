@@ -1,0 +1,13 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+platforms:
+  - name: instance
+    image: registry.gitlab.com/va1erify-deusops/docker-image-with-ansible/image-with-ansible:2.0.0
+    pre_build_image: true
+provisioner:
+  name: ansible
+verifier:
+  name: ansible

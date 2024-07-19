@@ -1,0 +1,27 @@
+- name: Проверяем установлен ли python3-pip
+  command: pip3 --version
+  register: pip3_version_output
+  ignore_errors: true
+
+- name: Python3-pip установлен, выводим версию
+  debug:
+    msg: "Python3-pip version is {{ pip3_version_output.stdout }}"
+  when: pip3_version_output.rc == 0
+
+- name: Python3-pip не установлен
+  debug:
+    msg: "Python3-pip is not installed"
+  when: pip3_version_output.rc != 0
+
+- name: Устанавливаем python3-pip
+  apt:
+    state: present
+    name:
+      - python3-pip
+
+- name: Устанавливаем Python пакеты через pip3
+  pip:
+    state: present
+    name:
+      - "docker=={{ docker_pip3_docker_version }}"
+      - "docker-compose=={{ docker_pip3_docker_compose_version }}"

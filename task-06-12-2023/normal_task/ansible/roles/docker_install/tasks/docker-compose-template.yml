@@ -1,0 +1,17 @@
+---
+- name: Создаем директорию для docker-compose
+  file:
+    path: "{{ docker_compose_directory_path }}"
+    mode: "{{ docker_compose_directory_mode }}"
+    group: "{{ docker_compose_directory_group }}"
+    owner: "{{ docker_compose_directory_owner }}"
+    state: directory
+
+- name: Формируем docker-compose из шаблона и закидываем на хост
+  template:
+    src: "{{ docker_compose_template_path }}"
+    dest: "{{ docker_compose_template_destination_path }}"
+    owner: "{{ docker_compose_template_owner }}"
+    group: "{{ docker_compose_template_group }}"
+    mode: "{{ docker_compose_template_mode }}"
+    backup: "{{ docker_compose_template_backup }}"

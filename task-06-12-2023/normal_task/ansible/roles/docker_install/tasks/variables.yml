@@ -1,0 +1,57 @@
+---
+- name: Определяем переменные на основании OS
+  ansible.builtin.include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+        - "vars/{{ ansible_os_family }}.yml"
+      skip: true
+
+- name: Определяем docker_conflict_packages
+  ansible.builtin.set_fact:
+    docker_conflict_packages: "{{ __docker_conflict_packages | list }}"
+  when: docker_conflict_packages is not defined
+
+- name: Определяем docker_supporting_packages
+  ansible.builtin.set_fact:
+    docker_supporting_packages: "{{ __docker_supporting_packages | list}}"
+  when: docker_supporting_packages is not defined
+
+- name: Определяем docker_gpg_directory_path
+  ansible.builtin.set_fact:
+    docker_gpg_directory_path: "{{ __docker_gpg_directory_path }}"
+  when: docker_gpg_directory_path is not defined
+
+- name: Определяем docker_gpg_directory_mode
+  ansible.builtin.set_fact:
+    docker_gpg_directory_mode: "{{ __docker_gpg_directory_mode }}"
+  when: docker_gpg_directory_mode is not defined
+
+- name: Определяем docker_gpg_directory_owner
+  ansible.builtin.set_fact:
+    docker_gpg_directory_owner: "{{ __docker_gpg_directory_owner }}"
+  when: docker_gpg_directory_owner is not defined
+
+- name: Определяем docker_gpg_directory_group
+  ansible.builtin.set_fact:
+    docker_gpg_directory_group: "{{ __docker_gpg_directory_group }}"
+  when: docker_gpg_directory_group is not defined
+
+- name: Определяем docker_gpg_key_url
+  ansible.builtin.set_fact:
+    docker_gpg_key_url: "{{ __docker_gpg_key_url }}"
+  when: docker_gpg_key_url is not defined
+
+- name: Определяем docker_gpg_key_dest
+  ansible.builtin.set_fact:
+    docker_gpg_key_dest: "{{ __docker_gpg_key_dest }}"
+  when: docker_gpg_key_dest is not defined
+
+- name: Определяем docker_gpt_key_mode
+  ansible.builtin.set_fact:
+    docker_gpt_key_mode: "{{ __docker_gpt_key_mode }}"
+  when: docker_gpt_key_mode is not defined
+
+- name: Определяем docker_packages
+  ansible.builtin.set_fact:
+    docker_packages: "{{ __docker_packages | list }}"
+  when: docker_packages is not defined

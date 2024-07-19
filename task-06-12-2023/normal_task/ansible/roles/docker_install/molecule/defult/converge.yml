@@ -1,0 +1,8 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: "Include va1erify.docker"
+      ansible.builtin.include_role:
+        name: "va1erify.docker"

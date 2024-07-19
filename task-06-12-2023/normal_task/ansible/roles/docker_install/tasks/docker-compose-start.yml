@@ -1,0 +1,10 @@
+---
+- name: Запускаем docker-compose
+  community.docker.docker_compose_v2:
+    project_name: "{{ docker_compose_start_project_name }}"
+    project_src: "{{ docker_compose_start_directory_destination_path }}"
+  register: docker_compose_output
+
+- name: Выводим статус docker-compose
+  debug:
+    var: docker_compose_output

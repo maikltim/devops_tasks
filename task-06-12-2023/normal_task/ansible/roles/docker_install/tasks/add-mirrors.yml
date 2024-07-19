@@ -1,0 +1,11 @@
+---
+- name: Формируем файл с зеркалами из шаблона и закидываем на хост
+  template:
+    src: "{{ docker_registry_mirrors_template_path }}"
+    dest: "{{ docker_registry_mirrors_destination_path }}"
+    owner: "{{ docker_registry_mirrors_owner }}"
+    group: "{{ docker_registry_mirrors_group }}"
+    mode: "{{ docker_registry_mirrors_mode }}"
+    backup: "{{ docker_registry_mirrors_backup }}"
+  notify:
+    - "restart docker"

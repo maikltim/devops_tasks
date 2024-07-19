@@ -1,0 +1,66 @@
+---
+- name: Проверяем установлен ли docker
+  command: docker --version
+  register: docker_version_output
+  ignore_errors: true
+
+- name: Докер установлен, выводим версию
+  debug:
+    msg: "Docker version is {{ docker_version_output.stdout }}"
+  when: docker_version_output.rc == 0
+
+- name: Докер не установлен
+  debug:
+    msg: "Docker is not installed"
+  when: docker_version_output.rc != 0
+
+- name: Удаляем конфликтующие пакеты
+  package:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ docker_conflict_packages }}"
+  when: docker_version_output.rc != 0
+
+- name: Устанавливаем curl и ca-certificates
+  apt:
+    state: present
+    name: "{{ item }}"
+    update_cache: yes
+  loop: "{{ docker_supporting_packages }}"
+
+- name: Создаем директорию для GPG ключей
+  file:
+    path: "{{ docker_gpg_directory_path }}"
+    mode: "{{ docker_gpg_directory_mode }}"
+    owner: "{{ docker_gpg_directory_owner }}"
+    group: "{{ docker_gpg_directory_group }}"
+    state: directory
+
+- name: Скачиваем Docker GPG ключ
+  uri:
+    url: "{{ docker_gpg_key_url }}"
+    dest: "{{ docker_gpg_key_dest }}"
+    method: GET
+    mode: "{{ docker_gpt_key_mode }}"
+  ignore_errors: true
+
+- name: Добавляем репозиторий docker в sources.list
+  shell: |
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+      $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  ignore_errors: true
+  when: docker_version_output.rc != 0
+
+- name: Устанавливаем docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  apt:
+    state: present
+    name: "{{ item }}"
+    update_cache: yes
+  loop: "{{ docker_packages }}"
+
+- name: Start Docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: yes

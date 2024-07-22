@@ -1,0 +1,40 @@
+Vagrant.configure("2") do |config|
+
+    config.vm.define "app" do |app|
+      app.vm.box = "ubuntu/focal64"
+     #app.vm.synced_folder "./data", "/vagrant_data"
+      app.vm.hostname = 'app'
+  
+      # Application port
+      app.vm.network "forwarded_port", guest: 8000, host: 8081
+      # DB port
+      app.vm.network "forwarded_port", guest: 3306, host: 3306
+  
+      app.vm.network "private_network", ip: "192.168.15.10"
+  
+      app.vm.provision :shell, path: "scripts/app/install-docker.sh"
+      app.vm.provision :shell, path: "scripts/app/clone-app.sh"
+      app.vm.provision :shell, path: "scripts/app/setup-env.sh"
+      # app.vm.provision :shell, path: "scripts/app/update-files-to-monitoring.sh"
+      app.vm.provision :shell, path: "scripts/app/fix-sidecar.sh"
+      app.vm.provision :shell, path: "scripts/app/run-app.sh"
+      app.vm.provision :shell, path: "scripts/app/install-and-start-node-exporter.sh"
+      app.vm.provision :shell, path: "scripts/app/run-cadvisor-and-docker-exporter.sh"
+    end
+  
+    config.vm.define "monitoring" do |monitoring|
+      monitoring.vm.box = "ubuntu/focal64"
+  
+      monitoring.vm.network "private_network", ip: "192.168.15.11"
+  
+      # Grafana port
+      monitoring.vm.network "forwarded_port", guest: 3000, host: 3000
+      # Prometheus port
+      monitoring.vm.network "forwarded_port", guest: 9090, host: 9090
+  
+      monitoring.vm.provision :shell, path: "scripts/monitoring/install-and-start-grafana.sh"
+      monitoring.vm.provision :shell, path: "scripts/monitoring/install-and-start-prometheus.sh"
+    end
+  
+  end
+  

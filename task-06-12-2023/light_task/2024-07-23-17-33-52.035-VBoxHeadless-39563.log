@@ -1,0 +1,12 @@
+Log created: 2024-07-23T17:33:52.357288000Z
+Process ID:  39563 (0x9a8b)
+Parent PID:  5553 (0x15b1)
+Executable:  /usr/lib/virtualbox/VBoxHeadless
+Arg[0]: /usr/lib/virtualbox/VBoxHeadless
+Arg[1]: --comment
+Arg[2]: light_task_vm1_1721377609799_7813
+Arg[3]: --startvm
+Arg[4]: b040fc44-c5bc-497b-9364-b5d2724bac0b
+Arg[5]: --vrde
+Arg[6]: config
+AddRef: illegal refcnt=3221225469 state=2

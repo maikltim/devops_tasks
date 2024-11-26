@@ -1,0 +1,33 @@
+---
+# OS distro box name
+os-distro: "ubuntu/focal64"
+
+# Hostname
+hostname: "game01"
+# IP address
+ip_address: "your_VM_IP"
+# Bridge device name
+bridge: "your_bridge"
+
+# Network type
+network-type: "public_network"
+
+# Guest Port
+guest_port: "80"
+
+# Host Port
+host_port: "8080"
+
+# VM name
+vm_name: "game01"
+
+# CPU Cores
+
+cpus: "1"
+
+# Memory
+
+memory: "2048"
+
+# Script path
+script_path: "script_path"

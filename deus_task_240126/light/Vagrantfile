@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+require 'yml'
+settings  = YAML.load_file('vagrant.yml')
+
+
+Vagrant.configure("2") do |config|
+    config.vm.box = settings['os-distro']
+    config.vm.hostname = settings['hostname']
+    config.vm.network settings['network_type'], bridge: settings['bridge'], ip: settings['ip_address'], hostname: true
+    config.vm.network "forwarded_port", guest: settings['guest_port'], host: settings['host_port']
+    config.vm.provider "virtualbox" do |v|
+        v.name = settings['vm_name']
+        v.cpus = settings['cpus']
+        v.memory = settings['memory']
+    end 
+    config.vm.provision "shell", path: settings['script_path']
+
+end 

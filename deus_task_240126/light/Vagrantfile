@@ -1,21 +1,16 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-
-require 'yml'
-settings  = YAML.load_file('vagrant.yml')
-
-
-Vagrant.configure("2") do |config|
-    config.vm.box = settings['os-distro']
-    config.vm.hostname = settings['hostname']
-    config.vm.network settings['network_type'], bridge: settings['bridge'], ip: settings['ip_address'], hostname: true
-    config.vm.network "forwarded_port", guest: settings['guest_port'], host: settings['host_port']
-    config.vm.provider "virtualbox" do |v|
-        v.name = settings['vm_name']
-        v.cpus = settings['cpus']
-        v.memory = settings['memory']
-    end 
-    config.vm.provision "shell", path: settings['script_path']
-
-end 
+Vagrant.configure(2) do |config|
+  config.vm.box = "ubuntu/focal64"
+    config.vbguest.auto_update = false
+  
+    config.vm.define "game01" do |game01|
+      game01.vm.network "private_network", ip: "192.168.11.150"
+      game01.vm.provider "virtualbox" do |v|
+      v.memory = 2048
+      v.cpus = 2
+    end
+      game01.vm.hostname = "game01"
+  end
+end

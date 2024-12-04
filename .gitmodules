@@ -1,9 +1,3 @@
-[submodule "2048-game"]
-	path = 2048-game
-	url = https://gitfront.io/r/deusops/JnacRhR4iD8q/2048-game.git
-[submodule "deus_task_240126/normal/2048-game"]
-	path = deus_task_240126/normal/2048-game
-	url = https://gitfront.io/r/deusops/JnacRhR4iD8q/2048-game.git
-[submodule "deus_task_240126/normal/deus_task_240126/normal"]
-	path = deus_task_240126/normal/deus_task_240126/normal
+[submodule "deus_task_240126/normal/app"]
+	path = deus_task_240126/normal/app
 	url = https://gitfront.io/r/deusops/JnacRhR4iD8q/2048-game.git

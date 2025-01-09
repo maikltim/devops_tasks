@@ -1,0 +1,34 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+    config.vm.box = "ubuntu/focal64"
+      config.vbguest.auto_update = false
+    
+      config.vm.define "gitlab" do |gitlab|
+          gitlab.vm.network "private_network", ip: "192.168.11.150"
+          gitlab.vm.provider "virtualbox" do |v|
+          v.memory = 2048
+          v.cpus = 2
+        end
+          gitlab.vm.hostname = "gitlab"
+      end
+    
+      config.vm.define "build" do |build|
+          build.vm.network "private_network", ip: "192.168.11.160"
+          build.vm.provider "virtualbox" do |v|
+          v.memory = 4096
+          v.cpus = 4
+        end
+          build.vm.hostname = "build"
+      end
+  
+      config.vm.define "nexus" do |nexus|
+          nexus.vm.network "private_network", ip: "192.168.11.170"
+          nexus.vm.provider "virtualbox" do |v|
+            v.memory = 2048
+            v.cpus = 2
+          end
+            nexus.vm.hostname = "nexus"
+      end
+    end

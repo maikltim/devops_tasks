@@ -62,7 +62,7 @@ node --version
 
 # clone project
 
-git clone https://gitfront.io/r/deusops/JnacRhR4iD8q/2048-game.git
+git clone https://gitfront.io/r/deusops/JnacRhR4iD8q/2048-game/
 
 # go to project directory 
 

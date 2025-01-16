@@ -1,0 +1,37 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+    config.vm.box = "ubuntu/focal64"
+      config.vbguest.auto_update = false
+    
+      config.vm.define "kafka01" do |kafka01|
+          kafka01.vm.network "private_network", ip: "192.168.11.150"
+          kafka01.vm.network "forwarded_port", guest: 9092, host: 9092
+          kafka01.vm.provider "virtualbox" do |v|
+          v.memory = 4096
+          v.cpus = 2
+        end
+          kafka01.vm.hostname = "kafka01"
+      end
+    
+      config.vm.define "db01" do |db01|
+          db01.vm.network "private_network", ip: "192.168.11.160"
+          db01.vm.network "forwarded_port", guest: 9000, host: 9000
+          db01.vm.provider "virtualbox" do |v|
+          v.memory = 4096
+          v.cpus = 4
+        end
+          db01.vm.hostname = "db01"
+      end
+  
+      config.vm.define "web01" do |web01|
+          web01.vm.network "private_network", ip: "192.168.11.170"
+          web01.vm.network "forwarded_port", guest: 8082, host: 8082
+          web01.vm.provider "virtualbox" do |v|
+            v.memory = 4096
+            v.cpus = 2
+          end
+            web01.vm.hostname = "web01"
+      end
+    end

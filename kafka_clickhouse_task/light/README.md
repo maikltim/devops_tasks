@@ -77,3 +77,5 @@ CREATE TABLE queue (
               SETTINGS kafka_format = 'JSONEachRow',
                        kafka_num_consumers = 4;
 ```
+
+7. Через UI записать сообщение в Kafka и проверить, что оно появилось в  ClickHouse

@@ -1,0 +1,7 @@
+---
+- name: Install git 
+  become: yes 
+  ansible.builtin.apt:
+    name: "{{ git_package_name }}"
+    state: "{{ git_package_state }}"
+    update_cache: yes 

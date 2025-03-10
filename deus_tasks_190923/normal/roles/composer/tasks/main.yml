@@ -1,0 +1,12 @@
+---
+- name: Download Composer installer
+  ansible.builtin.get_url:
+    url: "{{ composer_installer_url }}"
+    dest: "{{ composer_installer_temp_path }}"
+    mode: '0755'
+
+- name: Install Composer
+  command:
+    cmd: "php {{ composer_installer_temp_path }} --install-dir={{ composer_install_dir }} --filename=composer"
+    creates: "{{ composer_install_dir }}/composer"
+  become: yes

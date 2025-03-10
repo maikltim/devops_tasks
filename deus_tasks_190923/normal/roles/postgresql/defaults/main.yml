@@ -1,0 +1,7 @@
+pg_packages:
+  - postgresql-16
+  - postgresql-client-16
+postgresql_config_template: postgresql.conf.j2
+postgresql_config_dest: /etc/postgresql/16/main/postgresql.conf
+pghba_config_template: pg_hba.conf.j2
+pghba_config_dest: /etc/postgresql/16/main/pg_hba.conf

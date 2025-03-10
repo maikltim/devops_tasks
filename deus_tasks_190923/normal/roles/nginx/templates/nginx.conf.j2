@@ -1,0 +1,36 @@
+user nginx;
+worker_processes auto;
+pid /run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    server {
+        listen 80;
+        server_name 44.202.240.142;
+
+        root /home/ec2-user/laravel-project-travellist/public;
+        index index.php index.html;
+
+        location / {
+            try_files $uri $uri/ /index.php?$query_string;
+        }
+
+        location ~ \.php$ {
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            try_files $fastcgi_script_name =404;
+            set $path_info $fastcgi_path_info;
+            fastcgi_param PATH_INFO $path_info;
+            fastcgi_index index.php;
+            include fastcgi_params;
+            fastcgi_pass unix:/run/php-fpm/www.sock;
+            fastcgi_param SCRIPT_FILENAME $realpath_root$fastcgi_script_name;
+        }
+
+        location ~ /\.ht {
+            deny all;
+        }
+    }
+}

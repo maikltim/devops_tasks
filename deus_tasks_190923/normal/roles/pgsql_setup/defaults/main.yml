@@ -1,0 +1,17 @@
+db_name: travel_list
+db_user: travel_user
+db_user_password: password
+table_name: places
+read_user: travel_user
+insert_queries:
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Tokyo', false);"
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Budapest', true);"
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Nairobi', true);"
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Berlin', true);"
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Lisbon', true);"
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Denver', true);"
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Moscow', true);"
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Oslo', true);"
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Rio', true);"
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Cincinnati', true);"
+  - "INSERT INTO {{ table_name }} (name, visited) VALUES ('Helsinki', true);"

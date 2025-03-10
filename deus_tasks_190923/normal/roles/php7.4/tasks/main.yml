@@ -1,0 +1,43 @@
+---
+- name: Install PHP-FPM 
+  ansible.builtin.apt:
+    name:
+      - "php{{ php_version }}-fpm"
+      - "php{{ php_version }}-mysql"
+      - "php{{ php_version }}-bcmath"
+      - "php{{ php_version }}-ctype"
+      - "php{{ php_version }}-json"
+      - "php{{ php_version }}-mbstring"
+      - "php{{ php_version }}-pdo"
+      - "php{{ php_version }}-tokenizer"
+      - "php{{ php_version }}-xml"
+      - "php{{ php_version }}-curl"
+    state: latest 
+    update_cache: yes 
+
+
+- name: Ensure PHP-FPM config directory exists
+  ansible.builtin.file:
+    path: "/etc/php/{{ php_version }}/fpm/pool.d"
+    state: directory
+    mode: "0755"
+
+- name: Deploy PHP-FPM pool configuration
+  ansible.builtin.template:
+    src: "{{ www_conf_template_src }}"
+    dest: "/etc/php/{{ php_version }}/fpm/pool.d/www.conf"
+    mode: "0644"
+  notify: Restart php-fpm
+
+- name: Check if PHP-FPM is installed
+  ansible.builtin.command: "dpkg-query -W -f='${Status}' php{{ php_version }}-fpm"
+  register: php_fpm_check
+  changed_when: false
+
+- name: Ensure PHP-FPM service enabled 
+  ansible.builtin.service:
+    name: "php7.4-fpm"
+    enabled: true 
+    state: started 
+    
+

@@ -1,0 +1,10 @@
+php_packages:
+  - php8.1.x86_64
+  - php8.1-fpm.x86_64
+  - php8.1-pgsql.x86_64
+  - php8.1-mbstring.x86_64
+  - php8.1-xml.x86_64
+  - php8.1-bcmath.x86_64
+  - php8.1-cli.x86_64
+www_conf_template_src: www.conf.j2
+#www_conf_template_dest: /etc/php/7.4/fpm/pool.d/www.conf

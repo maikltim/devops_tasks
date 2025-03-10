@@ -1,0 +1,23 @@
+---
+- name: Install build-essential packages
+  ansible.builtin.apt:
+    name: build-essential
+    state: present 
+    update_cache: yes 
+
+- name: Install PHP and PHP-FPM
+  ansible.builtin.apt:
+    name: "{{ php_packages }}"
+    state: present
+
+- name: Copy {{ www_conf_template_src }} file 
+  ansible.builtin.tempfile:
+    src: "{{ www_conf_template_src }}"
+    dest: "{{ www_conf_template_dest }}"
+
+
+- name: Start and enabled PHP-FPM service 
+  ansible.builtin.systemd:
+    name: php{{ php_version }}-fpm
+    state: started 
+    enabled: true 

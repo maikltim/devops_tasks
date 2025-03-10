@@ -1,0 +1,19 @@
+--- 
+- name: Install chrony 
+  ansible.builtin.apt:
+    name: chrony 
+    state: present 
+    update_cache: true
+
+- name: Start enable chrony now
+  ansible.builtin.systemd:
+    name: chrony 
+    state: started
+    enabled: true 
+
+
+- name: Set timezone to Europe/Moscow
+  community.general.timezone:
+    name: Europe/Moscow
+  notify: Restart Chrony
+

@@ -1,0 +1,23 @@
+---
+- name: Install roles
+  hosts: all
+  become: true
+  gather_facts: true 
+  roles:
+    - chrony
+
+- hosts: appservers
+  become: yes
+  roles: 
+    - git_install
+    - php7.4
+    - composer
+
+
+- hosts: db
+  become: yes 
+  roles:
+    - python 
+    - postgresql
+    - pgsql_setup
+    

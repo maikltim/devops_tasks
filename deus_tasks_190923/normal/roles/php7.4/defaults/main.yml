@@ -1,0 +1,4 @@
+---
+  php_version: 7.4
+  www_conf_template_src: www.conf.j2
+  www_conf_template_dest: /etc/php-fpm.d/www.conf

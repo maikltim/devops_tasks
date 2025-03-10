@@ -1,0 +1,79 @@
+---
+- name: Install prerequest packages
+  ansible.builtin.apt:
+    name:
+      - wget 
+      - ca-certificates
+      - gnupg
+      - lsb-release
+    state: present
+    update_cache: yes
+
+- name: Add PostgreSQL repository key
+  ansible.builtin.apt_key:
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state: present
+
+
+- name: Add PostgreSQL repository to source list
+  ansible.builtin.apt_repository:
+    repo: "deb http://apt.postgresql.org/pub/repos/apt {{ ansible_distribution_release }}-pgdg main"
+    state: present 
+
+
+- name: Install PostgreSQL packages
+  ansible.builtin.apt:
+    name: "{{ pg_packages }}"
+    state: present
+    update_cache: yes
+  
+- name: Ensure PostgreSQL service is started and enabled 
+  ansible.builtin.systemd:
+    name: postgresql
+    state: started
+
+
+- name: Ensure socket directory exists and has correct permissions 
+  ansible.builtin.file:
+    path: /var/run/postgresql 
+    state: directory
+    owner: postgres
+    group: postgres 
+    mode: '0755'
+
+
+- name: Configure PostgreSQL socket directory in postgresql.conf
+  ansible.builtin.lineinfile:
+    path: /etc/postgresql/16/main/postgresql.conf
+    regexp: '^unix_socket_directories'
+    line: "unix_socket_directories = '/var/run/postgresql'"
+    state: present 
+
+
+- name: Reload PostgreSQL configuration after changes 
+  ansible.builtin.systemd:
+    name: postgresql
+    state: reloaded
+
+
+- name: Deploy custom PostgreSQL configuration file 
+  ansible.builtin.template:
+    src: "{{ postgresql_config_template }}"
+    dest: "{{ pghba_config_dest }}"
+    owner: postgres 
+    group: postgres 
+    mode: '0640'
+  notify:
+    - Restart PostgreSQL
+
+- name: Ensure PostgreSQL service is enabled and started
+  ansible.builtin.systemd:
+    name: postgresql
+    enabled: true 
+    state: started 
+
+
+- name: Verify PostgreSQL is running 
+  ansible.builtin.command: pg_isready
+  changed_when: false
+

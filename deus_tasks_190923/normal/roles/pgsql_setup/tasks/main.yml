@@ -1,0 +1,48 @@
+--- 
+- name: Create "{{ db_name }}" database 
+  community.postgresql.postgresql_db:
+    name: "{{ db_name }}"
+    state: present 
+
+
+- name: Create a user with access to the database
+  community.postgresql.postgresql_user:
+    db: "{{ db_name }}"
+    name: "{{ db_user }}"
+    password: "{{ db_user_password }}"
+    priv: "ALL"
+    state: present
+
+
+- name: Grant privileges to the user on public schema
+  community.postgresql.postgresql_query:
+    db: "{{ db_name }}"
+    query: "GRANT USAGE, CREATE ON SCHEMA public TO {{ db_user }}"
+  become_user: postgres
+
+- name: Create "{{ table_name }}"
+  community.postgresql.postgresql_table:
+    db: "{{ table_name }}"
+    name: "{{ table_name }}"
+    columns:
+      - id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY
+      - name varchar(255)
+      - visited BOOLEAN
+
+- name: Grant SELECT on "{{ table_name }}" table to "{{ read_user }}"
+  community.postgresql.postgresql_privs:
+    db: "{{ db_name }}"
+    privs: SELECT
+    type: table 
+    objs: "{{ table_name }}"
+    roles: "{{ read_user }}"
+    login_user: postgres
+  become: yes
+  become_user: postgres
+
+- name: Insert sample data into "{{ table_name }}" table
+  community.postgresql.postgresql_query:
+    db: "{{ db_name }}"
+    query: "{{ insert_queries }}"
+  become_user: postgres 
+    

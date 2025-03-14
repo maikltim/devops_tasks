@@ -1,0 +1,6 @@
+kibana_repo_baseurl: https://artifacts.elastic.co/packages/7.x/yum
+kibana_repo_gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+kibana_package_name: kibana
+kibana_package_state: latest
+kibana_config_path: /etc/kibana/kibana.yml
+kibana_host: "0.0.0.0"

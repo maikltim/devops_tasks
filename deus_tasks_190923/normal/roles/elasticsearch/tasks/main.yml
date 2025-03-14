@@ -1,0 +1,27 @@
+--- 
+- name: Download and install the public signt key 
+  ansible.builtin.apt_key:
+    state: present
+    key: "{{ elastic_gpg_key_url }}"
+
+
+- name: Add Elasticsearch repository 
+  ansible.builtin.apt_repository:
+    name: elasticsearch
+    description: Elasticsearch repository for 7.x packages
+    baseurl: "{{ elastic_repo_baseurl }}"
+    gpgcheck: yes 
+    gpgkey: "{{ elastic_gpg_key_url }}"
+    enabled: yes 
+
+
+- name: Install Elasticsearch
+  ansible.builtin.apt:
+    name: "{{ elastic_package_name }}"
+    state: latest
+
+- name: Enable Elasticsearch service 
+  ansible.builtin.systemd:
+    name: "{{ elastic_package_name }}"
+    enabled: yes 
+    state: started

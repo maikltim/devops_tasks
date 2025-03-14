@@ -4,7 +4,9 @@ app01_ip=192.168.50.11
 gitlab_ip=192.168.50.12 
 vpn=192.168.50.13 
 db01_ip=192.168.50.14 
-prod01_ip=192.168.50.15 
+prod01_ip=192.168.50.15
+elk01_ip=192.168.50.16
+prom01_ip=192.168.50.17
 
 
 [gitlab]
@@ -20,3 +22,9 @@ prod01 ansible_ssh_host=192.168.50.15
 
 [vpn]
 vpn01 ansible_ssh_host=192.168.50.13
+
+[elk]
+elk01 ansible_ssh_host=192.168.50.17
+
+[prom]
+prom01 ansible_ssh_host=192.168.50.16

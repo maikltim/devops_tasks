@@ -1,0 +1,29 @@
+--- 
+- name: Add Logstash repository
+  ansible.builtin.apt_repository:
+    name: "{{ logstash_package_name }}"
+    description: "{{ logstash_package_name }} repository for 7.x packages"
+    baseurl: "{{ logstash_repo_baseurl }}"
+    gpgcheck: yes
+    gpgkey: "{{ logstash_repo_gpgkey }}" 
+    enabled: yes 
+
+
+- name: Install Logstash 
+  ansible.builtin.apt:
+    name: "{{ logstash_package_name }}"
+    state: "{{ logstash_package_state }}"
+
+- name: Enable and start Logstash service 
+  ansible.builtin.systemd:
+    name: "{{ logstash_package_name }}"
+    enabled: yes 
+    state: started
+
+- name: Copy Logstash configuration file 
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  loop: "{{ logstash_config_files }}"
+  notify:
+    - restart logstash 

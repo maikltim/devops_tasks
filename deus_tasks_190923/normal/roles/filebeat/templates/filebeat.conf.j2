@@ -1,0 +1,31 @@
+filebeat.inputs:
+- type: log
+  paths:
+    - /var/log/nginx/*.log
+  fields:
+    log_type: nginx
+
+- type: log
+  paths:
+    - /var/log/cloud-init*.log
+  fields:
+    log_type: cloud-init
+
+- type: log
+  paths:
+    - /var/log/dnf.log
+  fields:
+    log_type: dnf
+
+output.logstash:
+  hosts: ["{{ elk01_ip }}:5044"]
+
+processors:
+  - rename:
+      fields:
+        - from: "host.name"
+          to: "host"
+      ignore_missing: true
+      fail_on_error: false
+  - drop_fields:
+      fields: ["_index"]

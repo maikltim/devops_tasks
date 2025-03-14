@@ -1,0 +1,7 @@
+elastic_gpg_key_url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+elastic_repo_name: elastic-7.x
+elastic_repo_description: Elastic repository for 7.x packages
+elastic_repo_baseurl: https://artifacts.elastic.co/packages/7.x/yum
+filebeat_package_name: filebeat
+filebeat_config_template: filebeat.conf.j2
+filebeat_config_dest: /etc/filebeat/filebeat.yml

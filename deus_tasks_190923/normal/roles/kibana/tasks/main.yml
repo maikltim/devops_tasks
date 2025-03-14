@@ -1,0 +1,28 @@
+---
+- name: Add Kibana repository
+  ansible.builtin.apt_repository:
+    name: "{{ kibana_package_name }}"
+    description: "{{ kibana_package_name }} repository for 7.x packages"
+    baseurl:  "{{ kibana_repo_baseurl }}"
+    gpgkeychek: yes
+    gpgkey: "{{ kibana_repo_gpgkey }}"
+    enabled: yes 
+
+- name: Install Kibana 
+  ansible.builtin.apt:
+    name: " {{ kibana_package_name }}"
+    state: "{{ kibana_package_state }}"
+
+
+- name: Configure Kibana to listen on all addresses
+  ansible.builtin.lineinfile:
+    path: "{{ kibana_config_path }}"
+    line: "server.host: '{{ kibana_host }}'"
+    create: yes 
+
+- name: Enable Kibana service 
+  ansible.builtin.systemd:
+    name: "{{ kibana_package_name }}"
+    enabled: yes 
+    state: started
+    daemon_reload: yes

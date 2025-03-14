@@ -1,0 +1,33 @@
+--- 
+- name: Add Elastic GPG key
+  become: yes
+  ansible.builtin.apt_key:
+    url: "{{ elastic_gpg_key_url }}"
+    keyring: /usr/share/keyrings/elastic.gpg
+
+- name: Add Elastic repository
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/elastic.gpg] {{ elastic_repo_baseurl }} stable main"
+    filename: "{{ elastic_repo_name }}"
+    update_cache: no
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install Filebeat
+  ansible.builtin.apt:
+    name: "{{ filebeat_package_name }}"
+    state: present
+
+- name: Enable and start Filebeat service
+  ansible.builtin.systemd:
+    name: filebeat
+    enabled: yes
+    state: started
+
+- name: Copy Filebeat configuration
+  ansible.builtin.template:
+    src: "{{ filebeat_config_template }}"
+    dest: "{{ filebeat_config_dest }}"
+  notify: reload filebeat

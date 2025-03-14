@@ -1,0 +1,7 @@
+logstash_repo_baseurl: https://artifacts.elastic.co/packages/7.x/yum
+logstash_repo_gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+logstash_package_name: logstash
+logstash_package_state: latest
+logstash_config_files:
+  - { src: "logstash.conf.j2", dest: "/etc/logstash/conf.d/logstash-logs.conf" }
+  - { src: "logstash-app01.conf.j2", dest: "/etc/logstash/conf.d/logstash-app01.conf" }

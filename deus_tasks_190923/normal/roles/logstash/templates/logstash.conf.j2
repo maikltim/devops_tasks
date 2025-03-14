@@ -1,0 +1,15 @@
+input {
+    file {
+      path => "/var/log/logstash/logstash-plain.log"
+      start_position => "beginning"
+      type => "logstash-logs"
+    }
+  }
+  
+  output {
+    elasticsearch {
+      hosts => ["http://localhost:9200"]
+      index => "logstash-logs-%{+YYYY.MM.dd}"
+    }
+  }
+  

@@ -1,0 +1,57 @@
+input {
+    beats {
+      port => 5044
+    }
+  }
+  
+  filter {
+    if [fields][log_type] == "nginx" {
+      grok {
+        match => { "message" => "%{COMBINEDAPACHELOG}" }
+      }
+      date {
+        match => [ "timestamp", "dd/MMM/yyyy:HH:mm:ss Z" ]
+        target => "@timestamp"
+      }
+    }
+    if [fields][log_type] == "syslog" {
+      grok {
+        match => { "message" => "%{SYSLOGTIMESTAMP:syslog_timestamp} %{SYSLOGHOST:syslog_hostname} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{GREEDYDATA:syslog_message}" }
+      }
+      date {
+        match => [ "syslog_timestamp", "MMM  d HH:mm:ss", "MMM dd HH:mm:ss" ]
+        target => "@timestamp"
+      }
+    }
+    if [fields][log_type] == "apt" {
+      grok {
+        match => { "message" => "%{TIMESTAMP_ISO8601:timestamp}\s+%{WORD:status}\s+%{GREEDYDATA:apt_message}" }
+      }
+      date {
+        match => [ "timestamp", "ISO8601" ]
+        target => "@timestamp"
+      }
+    }
+  }
+  
+  output {
+    if [fields][log_type] == "nginx" {
+      elasticsearch {
+        hosts => ["http://localhost:9200"]
+        index => "nginx-logs-%{+YYYY.MM.dd}"
+      }
+    }
+    if [fields][log_type] == "syslog" {
+      elasticsearch {
+        hosts => ["http://localhost:9200"]
+        index => "syslog-logs-%{+YYYY.MM.dd}"
+      }
+    }
+    if [fields][log_type] == "apt" {
+      elasticsearch {
+        hosts => ["http://localhost:9200"]
+        index => "apt-logs-%{+YYYY.MM.dd}"
+      }
+    }
+  }
+  

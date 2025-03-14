@@ -6,6 +6,7 @@
   roles:
     - chrony
     - node_exporter
+    - filebeat
 
 - hosts: gitlab
   become: yes
@@ -22,13 +23,32 @@
     - gitlab-runner
     - repository_init
     - nginx
-    - prometheus
+    
 
 
 - hosts: db
   become: yes 
   roles:
     - python 
-    # - postgresql
-    # - pgsql_setup
+    - postgresql
+    - pgsql_setup
+
+
+- hosts: elk01
+  become: yes
+  roles:
+    - elasticsearch
+    - grafana
+    - kibana
+    - logstash
+    - node_exporter
+    - filebeat
+
+- hosts: prom01
+  become: yes
+  roles:
+    - prometheus
+    - node_exporter
+    - filebeat
+
     

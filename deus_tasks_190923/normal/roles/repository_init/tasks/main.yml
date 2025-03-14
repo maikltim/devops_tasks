@@ -1,0 +1,68 @@
+--- 
+- name: Pause for token input 
+  ansible.builtin.pause:
+    prompt:  "Please go to GitLab and create an access token. Enter the token when ready"
+  register: input_token
+
+
+- name: Set Gitlab token as a fact 
+  set_fact:
+    gitlab_access_token: "{{ input_token.user_input }}"
+
+- name: Clone existing repository to temporary location 
+  ansible.builtin.git:
+    repo: "{{ remote_project }}"
+    dest: "{{ temp_old_repo_path }}"
+    clone: yes 
+    update: yes 
+
+
+- name: Prepare new repository directory 
+  ansible.builtin.file:
+    path: "{{ temp_new_repo_path }}"
+    state: directory 
+
+
+- name: Copy files into new repository directory
+  ansible.builtin.copy:
+    src: "{{ temp_old_repo_path }}"
+    dest: "{{ temp_new_repo_path }}"
+  
+
+
+- name: Apply configuration template env 
+  ansible.builtin.template:
+    src: ".gitlab-ci.yml.j2"
+    dest: "/tmp/new_repo/.gitlab-ci.yml"
+
+- name: git add 
+  ansible.builtin.command:
+    chdir: "{{ temp_new_repo_path }}"
+    dest: "/tmp/new_repo/.gitlab-ci.yml"
+
+- name: git commid 
+  ansible.builtin.command:
+    chdir: "{{ temp_new_repo_path }}"
+    cmd: git commit -m "Add updated .env and .gitlab-ci.yml files"
+
+- name: Change remote repository 
+  ansible.builtin.command:
+    chdir: "{{ temp_new_repo_path }}"
+    cmd: git remote set-url origin http://oauth2:{{ gitlab_access_token }}@{{ gitlab_ip }}/root/laravel-project-travellist.git
+
+- name: Remote rename
+  ansible.builtin.command:
+    chdir: "{{ temp_new_repo_path }}"
+    cmd: git remote rename origin old-origin
+
+
+- name: Remote add origin 
+  ansible.builtin.command:
+    chdir: "{{ temp_new_repo_path }}"
+    cmd: git remote add origin http://{{ gitlab_ip }}/root/laravel-project-travellist.git
+- name: Push to new repository 
+  command: 
+    chdir: "{{ temp_new_repo_path }}"
+    cmd: git push --set-upstream http://oauth2:{{ gitlab_access_token }}@{{ gitlab_ip }}/root/laravel-project-travellist.git --all
+
+

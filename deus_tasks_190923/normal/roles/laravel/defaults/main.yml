@@ -1,0 +1,4 @@
+project_name: laravel-project-travellist
+project_path: /home/maikltim/laravel-project-travellist/
+env_config_template: .env.j2
+env_config_dest: /home/maikltim/laravel-project-travellist/.env

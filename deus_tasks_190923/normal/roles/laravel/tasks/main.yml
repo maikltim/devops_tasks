@@ -1,0 +1,42 @@
+---
+- name: Copy laravel project to target host
+  ansible.posix.synchronize:
+    src: "files/{{ project_name }}/"
+    dest: "{{ project_path }}"
+
+- name: Copy .env configuration
+  ansible.builtin.template:
+    src: "{{ env_config_template }}"
+    dest: "{{ env_config_dest }}"
+
+
+- name: Clear-cache Laravel dependencies using Composer
+  ansible.builtin.command:
+    cmd: "/usr/local/bin/composer clear-cache --no-interaction"
+    chdir: "{{ project_name }}"
+
+
+- name: Update Laravel dependencies using Composer
+  ansible.builtin.command:
+    cmd: "/usr/local/bin/composer update --no-interaction"
+    chdir: "{{ project_name }}"
+
+- name: Install Laravel dependencies using Composer
+  ansible.builtin.command:
+    cmd: "/usr/local/bin/composer install --no-interaction"
+    chdir: "{{ project_name }}"
+
+- name: Generate Laravel Application Key
+  ansible.builtin.command:
+    cmd: "php artisan key:generate"
+    chdir: "{{ project_name }}"
+  become: no 
+  ignore_errors: yes 
+
+- name: Start Laravel development server
+  ansible.builtin.command:
+    cmd: "php artisan serve --host=0.0.0.0"
+    chdir: "{{ project_name }}"
+  become: no
+  async: 45
+  poll: 0

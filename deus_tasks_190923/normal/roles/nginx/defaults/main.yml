@@ -1,4 +1,2 @@
-nginx_package_name: nginx1
-nginx_service_name: nginx
-nginx_conf_template: nginx.conf.j2
-nginx_conf_dest: /etc/nginx/nginx.conf
+---
+php_version: 7.4

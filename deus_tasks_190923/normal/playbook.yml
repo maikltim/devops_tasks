@@ -5,6 +5,13 @@
   gather_facts: true 
   roles:
     - chrony
+    - node_exporter
+
+- hosts: gitlab
+  become: yes
+  roles:
+    - gitlab
+
 
 - hosts: appservers
   become: yes
@@ -12,12 +19,16 @@
     - git_install
     - php7.4
     - composer
+    - gitlab-runner
+    - repository_init
+    - nginx
+    - prometheus
 
 
 - hosts: db
   become: yes 
   roles:
     - python 
-    - postgresql
-    - pgsql_setup
+    # - postgresql
+    # - pgsql_setup
     

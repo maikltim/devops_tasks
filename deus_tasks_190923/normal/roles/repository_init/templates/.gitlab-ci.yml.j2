@@ -1,0 +1,40 @@
+build:
+    tags:
+        - app01
+    script:
+        - ls -la
+        - echo "Removing vendor and composer.lock"
+        - rm -rf vendor/ composer.lock
+        - echo "Installing composer packages"
+        - /usr/local/bincomposer install
+        - echo "Generating Laravel key"
+        - php artisan key:generate
+        - echo "Running migrations and seeding"
+        - php artisan migrate --seed 
+        - sudo rsync -av --no-group /home/gitlab-runner/builds/McotWgssd/0/root/laravel-project-travellist/ /home/ec2-user/laravel-project-travellist/
+
+deploy_to_dev:
+    tags:
+        - app01
+    script:
+        - echo "Deploying to app01 (development)"
+        - cd /home/maikltim/laravel-project-travellist/
+        - echo "Changing directory"
+        - sudo chown -R nginx:nginx /home/ec2-user/laravel-project-travellist/
+        - echo "apply nginx to read from directory"
+        - sudo nginx -t
+        - sudo systemctl restart nginx
+
+deploy_to_prod:
+    tags:
+        - prod01
+    script:
+        - echo "Deploying to prod01 (development)"
+        - cd /home/ec2-user/laravel-project-travellist/
+        - echo "Changing directory"
+        - sudo chown -R nginx:nginx /home/ec2-user/laravel-project-travellist/
+        - echo "apply nginx to read from directory"
+        - sudo nginx -t
+        - sudo systemctl restart nginx
+    when: manual
+    

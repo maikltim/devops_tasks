@@ -1,0 +1,6 @@
+gitlab_config_dest: "/etc/gitlab/gitlab.rb"
+gitlab_project_name: laravel-project-travellist
+gitlab_repo_url: https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh
+gitlab_project_visibility: private
+gitlab_initial_password_file: /etc/gitlab/initial_root_password
+gitlab_config_template: "gitlab.rb.j2"

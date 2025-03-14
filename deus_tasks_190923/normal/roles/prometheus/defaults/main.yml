@@ -1,0 +1,16 @@
+prometheus_user: prometheus
+prometheus_group: prometheus
+prometheus_version: 2.45.0
+prometheus_download_url: "https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
+prometheus_tmp_path: "/tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
+prometheus_checksum: "1c7f489a3cc919c1ed0df2ae673a280309dc4a3eaa6ee3411e7d1f4bdec4d4c5"
+prometheus_version_directory: "prometheus-{{ prometheus_version }}.linux-amd64"
+prometheus_contents:
+  - prometheus
+  - promtool
+  - consoles
+  - console_libraries
+prometheus_config_path: /etc/prometheus/prometheus.yml
+prometheus_directories:
+  - /etc/prometheus
+  - /var/lib/prometheus

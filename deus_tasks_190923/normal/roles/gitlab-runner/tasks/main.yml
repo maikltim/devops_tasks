@@ -1,0 +1,37 @@
+--- 
+- name: Download Gitlab Runner 
+  ansible.builtin.command:
+    cmd: "curl -L --output {{ gitlab_runner_bin_path }} {{ gitlab_runner_download_url }}"
+    creates: "{{ gitlab_runner_bin_path }}"
+
+- name: Make gitlab-runner executable 
+  ansible.builtin.file:
+    path: "{{ gitlab_runner_bin_path }}"
+    mode: 0755 
+
+- name: Create gitlab-runner user 
+  ansible.builtin.user:
+    name: "{{ gitlab_runner_user }}"
+    shell: /bin/bash 
+    create_home: yes 
+
+
+- name: Install Gitlab Runner 
+  ansible.builtin.command:
+    cmd: "{{ gitlab_runner_bin_path }} install --user={{ gitlab_runner_user }} --working-directory={{ gitlab_runner_working_dir }}"
+    creates: "{{ gitlab_runner_service_file }}"
+
+- name: Start Gitlab Runner service 
+  ansible.builtin.systemd:
+    name: gitlab-runner
+    state: started 
+    enabled: yes 
+
+
+- name: Ensure gitlab-runner can sudo without a password 
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers.d/{{ gitlab_runner_user }}
+    line: '{{ gitlab_runner_user }} ALL=(ALL) NOPASSWD: ALL'
+    create: yes 
+    validate: 'visudo -cf %s'
+  become: yes

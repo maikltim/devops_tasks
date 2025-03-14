@@ -1,0 +1,5 @@
+remote_project: https://gitfront.io/r/deusops/2cL1ba8fzWDo/laravel-project-travellist.git
+temp_old_repo_path: /tmp/old_repo
+temp_new_repo_path: /tmp/new_repo
+gitlab_project_path: root/laravel-project-travellist.git
+

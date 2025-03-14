@@ -1,0 +1,26 @@
+--- 
+- name: Install Nginx 
+  ansible.builtin.apt:
+    name: nginx 
+    state: latest 
+    update_cache: yes 
+
+
+- name: Template nginx config files
+  ansible.builtin.template:
+    src: "nginx/{{ item }}.j2"
+    dest: "/etc/nginx/sites-available/{{ item }}"
+
+
+- name: Create a symbolic default link to /etc/nginx/sites-available/upstreams
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/phpsite
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+
+
+- name: Start nginx Service 
+  ansible.builtin.systemd:
+    name: nginx
+    state: restarted
+    enabled: yes

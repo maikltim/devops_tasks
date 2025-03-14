@@ -1,7 +1,7 @@
 # PostgreSQL Client Authentication Configuration File
 
 # "local" is for Unix domain socket connections only
-local   all             all                                     trust
+local   all             all                                     peer # trust
 # IPv4 local connections:
 host    all             all             127.0.0.1/32            trust
 # IPv6 local connections:

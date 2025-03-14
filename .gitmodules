@@ -1,3 +1,6 @@
 [submodule "deus_task_240126/normal/app"]
 	path = deus_task_240126/normal/app
 	url = https://gitfront.io/r/deusops/JnacRhR4iD8q/2048-game.git
+[submodule "deus_tasks_190923/normal/deus_tasks_190923/normal/roles/laravel/files/laravel-project-travellist"]
+	path = deus_tasks_190923/normal/deus_tasks_190923/normal/roles/laravel/files/laravel-project-travellist
+	url = https://gitfront.io/r/deusops/2cL1ba8fzWDo/laravel-project-travellist/

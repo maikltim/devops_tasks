@@ -1,0 +1,20 @@
+--- 
+- name: Reload systemd
+  ansible.builtin.command: systemctl daemon-reload
+  become: true 
+
+
+- name: Enable Prometheus service
+  ansible.builtin.systemd:
+    name: prometheus
+    enabled: true 
+    state: restarted
+  become: true
+
+
+- name: Start Prometheus service
+  ansible.builtin.systemd:
+    name: prometheus
+    state: started
+  become: true
+    

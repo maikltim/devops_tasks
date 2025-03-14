@@ -1,0 +1,65 @@
+- name: Install required dependencies
+  ansible.builtin.apt:
+    name: 
+      - curl
+      - openssh-server
+      - ca-certificates
+      - tzdata
+      - perl 
+    state: present
+    update_cache: yes 
+
+- name: Import Gitlab CE repository 
+  ansible.builtin.shell: |
+    curl -sS https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+  args:
+    warn: false 
+
+- name: Install Gitlab CE 
+  ansible.builtin.apt:
+    name: gitlab-ce
+    state: latest
+
+- name: Copy /etc/gitlab/gitlab.rb 
+  ansible.builtin.template:
+    src: gitlab.rb.j2
+    dest: /etc/gitlab/gitlab.rb
+
+- name: Reconfigure gitlab  
+  ansible.builtin.command:
+    cmd: gitlab-ctl reconfigure 
+  become: yes
+    
+- name: Get Gitlab Initial password 
+  ansible.builtin.slurp:
+    src: /etc/gitlab/initial_root_password
+  register: gitlab_initial_password
+  until: gitlab_initial_password is not failed
+  retries: 5
+  delay: 10
+
+- name: Display Gitlab initial root password 
+  ansible.builtin.debug:
+    msg: "GitLab Initial Root Password: {{ gitlab_initial_password['content'] | b64decode }}"
+
+- name: Pause for token input 
+  ansible.builtin.pause:
+    prompt: "Please go to GitLab and create an access token. Enter the token when ready"
+  register: input_token  # CORRECTED: register moved to task level
+
+- name: Set Gitlab token as a fact 
+  ansible.builtin.set_fact:
+    gitlab_access_token: "{{ input_token.user_input }}"
+
+- name: Create Gitlab project 
+  ansible.builtin.uri:
+    url: "http://{{ gitlab_ip }}/api/v4/projects"
+    method: POST
+    body_format: json 
+    headers:
+      PRIVATE-TOKEN: "{{ gitlab_access_token }}"
+    body:
+      name: "{{ gitlab_project_name }}"
+      visibility: "{{ gitlab_project_visibility }}"
+    status_code: 201
+  register: gitlab_project

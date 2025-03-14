@@ -33,13 +33,87 @@
     state: started
 
 
+- name: Enable TCP/IP connection in postgresql.conf 
+  ansible.builtin.lineinfile:
+    path: /etc/postgresql/16/main/postgresql.conf
+    regexp: '^listen_addresses'
+    line: "listen_addresses = 'localhost'"
+    state: present
+  notify: Restart PostgreSQL
+
+
+- name: Configuration pg_hba.conf for TCP/IP connections  
+  ansible.builtin.lineinfile:
+    path: /etc/postgresql/16/main/pg_hba.conf
+    line: "host all all 127.0.0.1/32 scram-sha-256"
+    insertafter: EOF 
+  notify: Restart PostgreSQL
+
+
+- name: Wait for PostgreSQL Unix socket
+  ansible.builtin.wait_for:
+    path: /var/run/postgresql/.s.PGSQL.5432
+    timeout: 60
+
+- name: Wait for PostgreSQL Unix socket
+  ansible.builtin.wait_for:
+    path: /var/run/postgresql/.s.PGSQL.5432
+    timeout: 60
+
+- name: Wait for PostgreSQL TCP/IP port
+  ansible.builtin.wait_for:
+    host: 127.0.0.1
+    port: 5432
+    timeout: 60
+
+
+
 - name: Ensure socket directory exists and has correct permissions 
   ansible.builtin.file:
     path: /var/run/postgresql 
     state: directory
     owner: postgres
     group: postgres 
-    mode: '0755'
+    mode: '0700'
+
+
+- name: Set Unix socket permissions
+  ansible.builtin.lineinfile:
+    path: /etc/postgresql/16/main/postgresql.conf
+    regexp: '^unix_socket_permissions'
+    line: "unix_socket_permissions = 0700"
+    state: present
+
+
+- name: Wait for PostgreSQL
+  ansible.builtin.wait_for:
+    path: /var/run/postgresql/.s.PGSQL.5432
+    port: 5432
+    timeout: 60 
+
+- name: Restart PostgreSQL after configuration changes
+  ansible.builtin.systemd:
+    name: postgresql
+    state: restarted
+
+
+- name: Check PostgreSQL logs
+  ansible.builtin.command: tail -n 50 /var/log/postgresql/postgresql-16-main.log
+  become: yes
+  become_user: postgres
+  register: pg_logs
+  changed_when: false 
+
+- name: Dispaly PostgreSQL logs 
+  ansible.builtin.debug:
+    var: pg_logs.stdout_lines
+
+
+- name: Check if PostgreSQL process is running
+  ansible.builtin.shell: pgrep -f postgres
+  register: pg_process
+  changed_when: false 
+  failed_when: pg_process.rc != 0
 
 
 - name: Configure PostgreSQL socket directory in postgresql.conf
@@ -53,7 +127,7 @@
 - name: Reload PostgreSQL configuration after changes 
   ansible.builtin.systemd:
     name: postgresql
-    state: reloaded
+    state: restarted
 
 
 - name: Deploy custom PostgreSQL configuration file 

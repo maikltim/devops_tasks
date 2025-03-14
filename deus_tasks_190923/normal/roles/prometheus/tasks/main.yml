@@ -1,0 +1,79 @@
+---
+- name: Add user Prometheus
+  ansible.builtin.user:
+    name: "{{ prometheus_user }}"
+    shell: /sbin/nologin
+    system: true 
+
+
+- name: Create directories required by Prometheus
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ prometheus_user }}"
+    group: "{{ prometheus_group }}"
+    mode: 0755
+  loop: "{{ prometheus_directories }}"
+
+
+- name: Download Prometheus
+  ansible.builtin.get_url:
+    url: "{{ prometheus_download_url }}"
+    dest: "{{ prometheus_tmp_path }}"
+    checksum: "sha256:{{ prometheus_checksum }}"
+
+- name: Extract Prometheus package
+  ansible.builtin.unarchive:
+    src: "{{ prometheus_tmp_path }}"
+    dest: "/tmp"
+    remote_src: true
+    
+
+- name: Move Prometheus binaries and directories
+  ansible.builtin.command:
+    cmd: rsync -a /tmp/{{ prometheus_version_directory }}/{{ item }} /etc/prometheus/
+  loop: "{{ prometheus_contents }}"
+
+
+- name: Copy Prometheus config file
+  ansible.builtin.template:
+    src: prometheus.yml.j2
+    dest: "{{ prometheus_config_path }}"
+    owner: "{{ prometheus_user }}"
+    group: "{{ prometheus_group }}"
+    mode: 0644 
+
+- name: Create systemd service file for Prometheus
+  become: yes 
+  ansible.builtin.copy:
+    dest: /etc/systemd/system/prometheus.service
+    content: |
+      [Unit]
+      Description=Prometheus Service
+      After=network.target
+
+      [Service]
+      User=prometheus
+      Group=prometheus
+      Type=simple
+      ExecStart=/etc/prometheus/prometheus \
+        --config.file /etc/prometheus/prometheus.yml \
+        --storage.tsdb.path /var/lib/prometheus/ \
+        --web.console.templates=/etc/prometheus/consoles \
+        --web.console.libraries=/etc/prometheus/console_libraries \
+        --web.listen-address=0.0.0.0:9090
+
+      [Install]
+      WantedBy=multi-user.target
+  notify:
+    - name: Reload system 
+    - name: Enabled Prometheus service 
+    - name: Start Prometheus service 
+
+
+- name: Ensure Prometheus is enabled and started
+  become: yes 
+  ansible.builtin.systemd:
+    name: prometheus
+    state: started
+    enabled: true

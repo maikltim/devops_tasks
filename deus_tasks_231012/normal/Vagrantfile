@@ -1,0 +1,36 @@
+Vagrant.configure("2") do |config|
+    config.vm.define "web01" do |web01|
+        web01.vm.box = "ubuntu/focal64"
+        web01.vm.hostname = "web01"
+        web01.vm.network "private_network", ip: "192.168.50.110"
+        web01.vm.provider "virtualbox" do |vb|
+            vb.memory = "4096"
+            vb.cpus = "4"
+        end
+    end  # Add this end
+
+    config.vm.define "db01" do |db01|
+        db01.vm.box = "ubuntu/focal64"
+        db01.vm.hostname = "db01"
+        db01.vm.network "private_network", ip: "192.168.50.120"
+        db01.vm.provider "virtualbox" do |vb|
+            vb.memory = "4096"
+            vb.cpus = "4"
+        end 
+    end  # Add this end
+
+    config.vm.define "mon01" do |mon01|
+        mon01.vm.box = "ubuntu/focal64"
+        mon01.vm.hostname = "mon01"
+        mon01.vm.network "private_network", ip: "192.168.50.130"
+        mon01.vm.provider "virtualbox" do |vb|
+            vb.memory = "4096"
+            vb.cpus = "4"
+        end 
+    end
+
+    
+    config.ssh.insert_key = false
+    config.ssh.private_key_path = ["~/.vagrant.d/insecure_private_key", "~/.ssh/id_rsa"]
+    config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
+end

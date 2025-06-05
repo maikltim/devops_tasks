@@ -1,0 +1,28 @@
+--- 
+- name: Install PHP and phpmyadmin 
+  ansible.builtin.apt:
+    name: 
+      - "{{ php_packages }}"
+      - mariadb-client
+      - phpmyadmin
+    state: present
+    update_cache: yes 
+  become: yes 
+
+
+- name: Ensure PHP-FPM is running 
+  ansible.builtin.service:
+    name: "php{{ php_version }}-fpm"
+    state: started
+    enabled: yes 
+  become: yes 
+
+
+- name: Ensure phpmyadmin directory permissions 
+  ansible.builtin.file:
+    path: "{{ phpmyadmin_path }}"
+    owner: www-data
+    group: www-data
+    mode: "0755"
+    recurse: yes
+  become: yes 

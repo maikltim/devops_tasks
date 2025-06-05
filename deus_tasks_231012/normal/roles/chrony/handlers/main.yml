@@ -1,0 +1,7 @@
+--- 
+# systemctl restart chrony
+- name: Restart Chrony Ubuntu
+  ansible.builtin.service:
+    name: chrony 
+    state: restarted
+    daemon_reload: yes 

@@ -1,0 +1,39 @@
+--- 
+- name: Install Nginx 
+  ansible.builtin.apt:
+    name: nginx
+    state: present 
+    update_cache: yes 
+  become: yes 
+
+- name: Ensure Nginx is running 
+  ansible.builtin.service:
+    name: nginx 
+    state: started
+    enabled: yes 
+  become: yes 
+
+- name: Configure Nginx for phpmyadmin
+  ansible.builtin.template:
+    src: phpmyadmin.conf.j2
+    dest: "/etc/nginx/sites-available/phpmyadmin.conf"
+    mode: "0644"
+  become: yes 
+  notify: Restart Nginx 
+
+
+- name: Enable phpmyadmin nginx site 
+  ansible.builtin.file:
+    src: "/etc/nginx/sites-available/phpmyadmin.conf"
+    dest: "/etc/nginx/sites-enabled/phpmyadmin.conf"
+    state: link 
+  become: yes 
+  notify: Restart Nginx 
+
+- name: Remove default Nginx site 
+  ansible.builtin.file:
+    path: "/etc/nginx/sites-enabled/default"
+    state: absent
+  become: yes 
+  notify: Restart Nginx
+

@@ -1,0 +1,28 @@
+server {
+    listen {{ nginx_port }};
+    server_name {{ nginx_server_name }};
+
+    root {{ phpmyadmin_path }};
+    index index.php index.html index.htm;
+
+    location {{ phpmyadmin_url }} {
+        alias {{ phpmyadmin_path }};
+        index index.php;
+    }
+
+    location ~ ^/{{ phpmyadmin_url }}/(.*\.php)$ {
+        alias {{ phpmyadmin_path }}/$1;
+        fastcgi_pass unix:/run/php/php{{ php_version }}-fpm.sock;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $request_filename;
+    }
+
+    location ~* ^/{{ phpmyadmin_url }}/(.*\.(js|css|gif|png|jpg|jpeg|woff|woff2|ttf|svg|eot))$ {
+        alias {{ phpmyadmin_path }}/$1;
+    }
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}

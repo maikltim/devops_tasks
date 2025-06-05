@@ -1,0 +1,15 @@
+---
+php_version: "7.4"
+php_packages:
+  - "php{{ php_version }}"
+  - "php{{ php_version }}-fpm"
+  - "php{{ php_version }}-mysql"
+  - "php{{ php_version }}-mbstring"
+  - "php{{ php_version }}-gd"
+  - "php{{ php_version }}-xml"
+phpmyadmin_path: "/usr/share/phpmyadmin"
+phpmyadmin_db_host: "192.168.50.120" # db01 IP 
+phpmyadmin_db_user: "phpmyadmin"
+phpmyadmin_db_password: "123admin"
+phpmyadmin_db_name: "phpmyadmin"
+

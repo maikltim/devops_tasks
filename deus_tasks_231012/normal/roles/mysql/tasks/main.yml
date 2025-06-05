@@ -1,0 +1,52 @@
+---
+- name: Install MariaDB server 
+  ansible.builtin.apt:
+    name:
+      - mariadb-server
+      - python3-pymysql  # Required for Ansible MySQL modules
+    state: present
+    update_cache: yes 
+  become: yes 
+
+- name: Ensure MariaDB is running
+  ansible.builtin.service:
+    name: mariadb
+    state: started
+    enabled: yes 
+  become: yes 
+
+- name: Set MariaDb root password
+  community.mysql.mysql_user:
+    name: root 
+    password: "{{ mysql_root_password }}"
+    login_unix_socket: /run/mysqld/mysqld.sock
+    state: present 
+  become: yes 
+
+- name: Create phpmyadmin database
+  community.mysql.mysql_db:
+    name: "{{ mysql_phpmyadmin_db }}"
+    state: present 
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+  become: yes 
+
+
+- name: Create phpmyadmin user 
+  community.mysql.mysql_user:
+    name: "{{ mysql_phpmyadmin_user }}"
+    password: "{{ mysql_phpmyadmin_password }}"
+    priv: "{{ mysql_phpmyadmin_db }}.*:ALL"
+    host: "{{ mysql_phpmyadmin_host }}"
+    state: present 
+    login_user: root 
+    login_password: "{{ mysql_root_password }}"
+  become: yes 
+
+- name: Configure MariaDB to listen on all interfaces
+  ansible.builtin.lineinfile:
+    path: /etc/mysql/mariadb.conf.d/50-server.cnf
+    regexp: "^bind-address"
+    line: "bind-address = {{ mysql_bind_address }}"
+  become: yes 
+  notify: Restart Mariadb

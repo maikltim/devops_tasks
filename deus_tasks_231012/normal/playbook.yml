@@ -1,0 +1,20 @@
+- name: Install roles
+  hosts: all
+  become: yes
+  gather_facts: true
+  roles:
+    - chrony
+
+- hosts: web01
+  become: yes
+  gather_facts: true 
+  roles:
+    - nginx 
+    - phpmyadmin
+
+
+- hosts: db01
+  become: yes
+  gather_facts: true
+  roles:
+    - mysql

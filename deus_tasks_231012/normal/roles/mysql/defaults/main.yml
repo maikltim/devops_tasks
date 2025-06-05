@@ -1,0 +1,7 @@
+--- 
+mysql_bind_address: "0.0.0.0"  # Allow connections from web01
+mysql_root_password: "root_secure_123"  # Use ansible-vault in production
+mysql_phpmyadmin_db: "phpmyadmin"
+mysql_phpmyadmin_user: "phpmyadmin"
+mysql_phpmyadmin_password: "secure_password_123"  # Match phpmyadmin role
+mysql_phpmyadmin_host: "192.168.50.110"  # web01 IP

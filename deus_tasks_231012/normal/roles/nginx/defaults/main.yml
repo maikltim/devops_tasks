@@ -1,0 +1,6 @@
+---
+nginx_port: 80
+nginx_server_name: "{{ ansible_default_ipv4.ansible_default_ipv4.address }}"
+phpmyadmin_path: "/usr/share/phpmyadmin"
+phpmyadmin_url: "/phpmyadmin"
+php_version: "7.4"
